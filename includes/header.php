@@ -17,17 +17,17 @@ $uri = $_SERVER['REQUEST_URI'];
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- GLOBAL CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- PAGE-SPECIFIC CSS -->
     <?php if (strpos($uri, '/admin/') !== false): ?>
-        <link rel="stylesheet" href="/assets/css/admin.css">
+        <link rel="stylesheet" href="assets/css/admin.css">
     <?php else: ?>
-        <link rel="stylesheet" href="/assets/css/pages.css">
+        <link rel="stylesheet" href="assets/css/pages.css">
     <?php endif; ?>
 
     <!-- Favicon -->
-    <link rel="icon" href="/assets/images/logo.jpg">
+    <link rel="icon" href="assets/images/logo.jpg">
 
     <title>the BookHouse</title>
 </head>
@@ -36,7 +36,7 @@ $uri = $_SERVER['REQUEST_URI'];
 
 <header>
     <div class="logo">
-        <img src="/assets/images/logo1.png" alt="Logo">
+        <img src="assets/images/logo1.png" alt="Logo">
         <h1>the BookHouse</h1>
     </div>
 

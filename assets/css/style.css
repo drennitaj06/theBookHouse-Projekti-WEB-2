@@ -365,19 +365,6 @@ ul li.active a::after{
         right: 40px;
         z-index: 1000;
     }
-
-    #section3 img {
-        display: none;
-    }
-
-    .navigation-manual {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 25px;
-    }
 }
 
 /* LOGO + LOGIN RESPONSIVE */
@@ -390,10 +377,6 @@ ul li.active a::after{
 
     .logo h1 {
         font-size: 24px;
-    }
-
-    #login {
-        margin-top: 78.95px;
     }
 }
 
@@ -410,6 +393,13 @@ ul li.active a::after{
         text-align: center;
     }
 
+    .footer-pages-legal {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 40px;
+    }
+
+
     .footer-pages-legal ul {
         align-items: center;
     }
@@ -422,14 +412,5 @@ ul li.active a::after{
 
     .footer-social h3::after {
         width: 60px;
-    }
-}
-
-/* EXTRA SMALL (social icons adjustment) */
-@media only screen and (max-width: 630px) {
-
-    .social-links a {
-        font-size: 34px;
-        margin: 0 15px;
     }
 }
