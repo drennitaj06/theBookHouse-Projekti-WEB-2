@@ -7,6 +7,18 @@
                 <ul>
                     <li><a href="/index.php">Home</a></li>
                     <li><a href="/pages/books.php">Books</a></li>
+                    <?php if(isset($_SESSION['user'])): ?>
+                        <li><a href="/pages/profile.php">Profile</a></li>
+
+                        <?php if($_SESSION['user']['role'] === 'admin'): ?>
+                            <li><a href="/pages/admin/dashboard.php">Admin</a></li>
+                        <?php endif; ?>
+
+                        <li><a href="/auth/logout.php">Log Out</a></li>
+
+                    <?php else: ?>
+                        <li><a href="/pages/login.php">Log In</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
 

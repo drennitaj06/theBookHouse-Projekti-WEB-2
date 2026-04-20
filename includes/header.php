@@ -47,4 +47,6 @@ session_start();
             <li><a href="/pages/login.php">LOGIN</a></li>
         <?php endif; ?>
     </ul>
+
+    <div class="menu-toggle">&#9776;</div> 
 </header>
