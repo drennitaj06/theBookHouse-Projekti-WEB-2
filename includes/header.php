@@ -14,7 +14,10 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- Icon -->
+    <link rel="icon" href="assets/images/logo.jpg">
 
     <title>the BookHouse</title>
 </head>
@@ -23,7 +26,7 @@ session_start();
 
 <header>
     <div class="logo">
-        <img src="../assets/images/logo1.png" alt="Logo">
+        <img src="assets/images/logo1.png" alt="Logo">
         <h1>the BookHouse</h1>
     </div>
 

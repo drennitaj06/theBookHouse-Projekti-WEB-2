@@ -1,9 +1,6 @@
 body{
     margin: 0;
     padding: 0;
-    /* background: #FFEFBA;
-    background: -webkit-linear-gradient(#fcf6e7, #FFEFBA, #fcf6e7);
-    background: linear-gradient(#fcf6e7, #FFEFBA, #fcf6e7); */
     background-color: whitesmoke;
     overflow-x: hidden;
     font-family: 'Titillium Web', sans-serif;
@@ -27,10 +24,6 @@ header{
     transition: top 0.3s;
     z-index: 998;
 }
-
-/* header.hidden {
-    top: -98.188px;
-} */
 
 .logo{
     display: flex;
@@ -155,9 +148,32 @@ ul li.active a::after{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .site-footer {
     background-color: black;
     padding: 40px 20px;
+}
+
+.site-footer ul {
+    padding: 0;
 }
 
 .footer-container {
@@ -209,23 +225,23 @@ ul li.active a::after{
     margin-top: 5px;
 }
 
-.footer-nav {
+.footer-menu {
     list-style: none;
     padding: 0;
 }
 
-.footer-nav li {
+.footer-menu li {
     margin-bottom: 8px;
 }
 
-.footer-nav a {
+.footer-menu a {
     color: rgb(200, 200, 200);
     text-decoration: none;
     transition: color 0.3s;
     font-size: 16px;
 }
 
-.footer-nav a:hover {
+.footer-menu a:hover {
     color: rgb(220, 136, 20);
     text-decoration: underline;
 }
@@ -268,4 +284,165 @@ ul li.active a::after{
 .footer-social a i {
     font-size: 24px; /* Adjust this as needed */
     line-height: 40px; /* Ensures vertical centering */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 830px) {
+
+    header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .ulIndex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -50%;
+        background-color: black;
+        box-shadow: 0 0 10px rgb(8, 8, 8);
+        z-index: -1;
+        transition: right .6s ease-in;
+    }
+
+    .ulIndex.show {
+        right: 0;
+        z-index: 999;
+        transition: right .6s ease-out;
+    }
+
+    .ulIndex li {
+        display: block;
+        text-align: center;
+        padding: 10px 0;
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 1;
+        cursor: pointer;
+        font-family: 'Material Icons';
+        font-size: 24px;
+        color: white;
+        position: absolute;
+        right: 40px;
+        z-index: 1000;
+    }
+
+    #section3 img {
+        display: none;
+    }
+
+    .navigation-manual {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+    }
+}
+
+/* LOGO + LOGIN RESPONSIVE */
+@media only screen and (max-width: 630px) {
+
+    .logo img {
+        width: 100px;
+        height: 50px;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+
+    #login {
+        margin-top: 78.95px;
+    }
+}
+
+/* FOOTER RESPONSIVE */
+@media only screen and (max-width: 884px) {
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-menu {
+        text-align: center;
+    }
+
+    .footer-pages-legal ul {
+        align-items: center;
+    }
+
+    .footer-menu h3::after,
+    .footer-social h3::after {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-social h3::after {
+        width: 60px;
+    }
+}
+
+/* EXTRA SMALL (social icons adjustment) */
+@media only screen and (max-width: 630px) {
+
+    .social-links a {
+        font-size: 34px;
+        margin: 0 15px;
+    }
 }

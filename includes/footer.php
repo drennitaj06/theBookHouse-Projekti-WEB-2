@@ -13,8 +13,10 @@
             <div class="footer-menu">
                 <h3>Legal</h3>
                 <ul>
-                    <li><a href="#">Terms</a></li>
-                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Legal Terms</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">Accessibility</a></li>
                 </ul>
             </div>
         </div>
@@ -34,6 +36,6 @@
     </div>
 </footer>
 
-<script src="../assets/js/script.js"></script>
+<script src="/assets/js/script.js"></script>
 </body>
 </html>
