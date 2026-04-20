@@ -48,6 +48,13 @@
     </div>
 </footer>
 
-<script src="/assets/js/script.js"></script>
+<!-- GLOBAL JS -->
+<script src="/assets/js/script.js" defer></script>
+
+<?php if (strpos($uri, '/admin/') !== false): ?>
+    <script src="/assets/js/admin.js" defer></script>
+<?php else: ?>
+    <script src="/assets/js/pages.js" defer></script>
+<?php endif; ?>
 </body>
 </html>
