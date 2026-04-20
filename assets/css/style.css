@@ -1,0 +1,145 @@
+body{
+    margin: 0;
+    padding: 0;
+    /* background: #FFEFBA;
+    background: -webkit-linear-gradient(#fcf6e7, #FFEFBA, #fcf6e7);
+    background: linear-gradient(#fcf6e7, #FFEFBA, #fcf6e7); */
+    background-color: whitesmoke;
+    overflow-x: hidden;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+*{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    width: 100%;
+    height: auto;
+    padding: 5px 0;
+    position: fixed;
+    top: 0;
+    transition: top 0.3s;
+    z-index: 998;
+}
+
+/* header.hidden {
+    top: -98.188px;
+} */
+
+.logo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img{
+    width: 150px;
+    height: 75px;
+}
+
+.logo h1{
+    color: white;
+    padding: 0 5.64px;
+    text-align: center;
+    font-size: 30px;
+    min-width: 193.062px;
+}
+
+ul{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	overflow: hidden;
+	padding: 0px 10px;
+    margin-top: 10px;
+}
+
+ul li {
+	display: inline-block;
+	padding: 10px 16px;
+	margin: 5px 15px; 
+}
+
+ul li.active{
+	border-radius: 5px;
+}
+
+ul li:hover{
+	border-radius: 5px;
+}
+
+ul li a{
+	color: #a0a0a0;
+	text-decoration: none;
+	font-family: 'Titillium Web', sans-serif;
+	font-size: 18px;
+    position: relative;
+    letter-spacing: 0.5px;
+}
+
+header ul li a::after{
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -10px;
+    transition: 0.3s;
+}
+
+ul li a:hover{
+    color: white;
+}
+
+ul li a svg{
+    position: relative;
+    top: 5px;
+}
+
+ul li a:hover svg{
+    fill: white;
+}
+
+ul li a:hover:after{
+    width: 100%;
+}
+
+ul li.active a{
+    color: white;
+}
+
+ul li.active a svg{
+    fill: white;
+}
+
+ul li.active a::after{
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    color: white;
+    margin-right: 20px;
+}
+
+#login{
+    margin-top: 98.188px;
+}
+
+#login h1{
+    color: black;
+    text-align: left;
+    margin-left: 44px;
+    padding: 40px 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}

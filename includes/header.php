@@ -23,7 +23,7 @@ session_start();
 
 <header>
     <div class="logo">
-        <img src="../assests/images/logo1.png" alt="Logo">
+        <img src="../assets/images/logo1.png" alt="Logo">
         <h1>the BookHouse</h1>
     </div>
 
