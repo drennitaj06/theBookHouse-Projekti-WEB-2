@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Detect current request path (best way for folder-based routing)
 $uri = $_SERVER['REQUEST_URI'];
