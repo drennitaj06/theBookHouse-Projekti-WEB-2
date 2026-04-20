@@ -1,5 +1,8 @@
 <?php
 session_start();
+
+// Detect current request path (best way for folder-based routing)
+$uri = $_SERVER['REQUEST_URI'];
 ?>
 
 <!DOCTYPE html>
@@ -13,11 +16,18 @@ session_start();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- GLOBAL CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-    <!-- Icon -->
-    <link rel="icon" href="assets/images/logo.jpg">
+    <!-- PAGE-SPECIFIC CSS -->
+    <?php if (strpos($uri, '/admin/') !== false): ?>
+        <link rel="stylesheet" href="/assets/css/admin.css">
+    <?php else: ?>
+        <link rel="stylesheet" href="/assets/css/pages.css">
+    <?php endif; ?>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/assets/images/logo.jpg">
 
     <title>the BookHouse</title>
 </head>
@@ -26,7 +36,7 @@ session_start();
 
 <header>
     <div class="logo">
-        <img src="assets/images/logo1.png" alt="Logo">
+        <img src="/assets/images/logo1.png" alt="Logo">
         <h1>the BookHouse</h1>
     </div>
 
@@ -34,10 +44,11 @@ session_start();
         <li><a href="/index.php">HOME</a></li>
         <li><a href="/pages/books.php">BOOKS</a></li>
 
-        <?php if(isset($_SESSION['user'])): ?>
+        <?php if (isset($_SESSION['user'])): ?>
+
             <li><a href="/pages/profile.php">PROFILE</a></li>
 
-            <?php if($_SESSION['user']['role'] === 'admin'): ?>
+            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
                 <li><a href="/pages/admin/dashboard.php">ADMIN</a></li>
             <?php endif; ?>
 
