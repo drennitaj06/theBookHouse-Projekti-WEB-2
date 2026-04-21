@@ -1,19 +1,23 @@
 <?php
+require_once dirname(__DIR__) . '/config/constants.php';
+
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Normalize URI (remove query params)
+// Normalize URI
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-// Helper function (kept similar to yours)
-function isActive($path) {
-    global $uri;
-    return strpos($uri, $path) !== false;
+// Get current page
+$currentPage = basename($uri);
+
+// Helper function
+function isActive($page) {
+    return strpos($_SERVER['REQUEST_URI'], $page) !== false;
 }
 
-// Detect homepage properly
-$isHome = ($uri === '/' || $uri === '/index.php');
+// Detect homepage
+$isHome = ($currentPage === 'index.php');
 ?>
 
 <!DOCTYPE html>
@@ -28,17 +32,17 @@ $isHome = ($uri === '/' || $uri === '/index.php');
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <!-- GLOBAL CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/style.css">
 
     <!-- PAGE-SPECIFIC CSS -->
     <?php if (strpos($uri, '/admin/') !== false): ?>
-        <link rel="stylesheet" href="assets/css/admin.css">
+        <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/admin.css">
     <?php else: ?>
-        <link rel="stylesheet" href="assets/css/pages.css">
+        <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/pages.css">
     <?php endif; ?>
 
     <!-- Favicon -->
-    <link rel="icon" href="assets/images/logo.jpg">
+    <link rel="icon" href="<?= BASE_URL ?>assets/images/logo.jpg">
 
     <title>the BookHouse</title>
 </head>
@@ -47,39 +51,39 @@ $isHome = ($uri === '/' || $uri === '/index.php');
 
 <header>
     <div class="logo">
-        <img src="assets/images/logo1.png" alt="Logo">
+        <img src="<?= BASE_URL ?>assets/images/logo1.png" alt="Logo">
         <h1>the BookHouse</h1>
     </div>
 
     <ul class="ulIndex">
         <li class="<?= $isHome ? 'active' : '' ?>">
-            <a href="/index.php">HOME</a>
+            <a href="<?= BASE_URL ?>index.php">HOME</a>
         </li>
 
-        <li class="<?= isActive('/pages/books.php') ? 'active' : '' ?>">
-            <a href="/pages/books.php">BOOKS</a>
+        <li class="<?= isActive('books.php') ? 'active' : '' ?>">
+            <a href="<?= BASE_URL ?>pages/books.php">BOOKS</a>
         </li>
 
         <?php if (isset($_SESSION['user'])): ?>
 
-            <li class="<?= isActive('/pages/profile.php') ? 'active' : '' ?>">
-                <a href="/pages/profile.php">PROFILE</a>
+            <li class="<?= isActive('profile.php') ? 'active' : '' ?>">
+                <a href="<?= BASE_URL ?>pages/profile.php">PROFILE</a>
             </li>
 
             <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-                <li class="<?= isActive('/pages/admin/') ? 'active' : '' ?>">
-                    <a href="/pages/admin/dashboard.php">ADMIN</a>
+                <li>
+                    <a href="<?= BASE_URL ?>pages/admin/dashboard.php">ADMIN</a>
                 </li>
             <?php endif; ?>
 
             <li>
-                <a href="/auth/logout.php">LOGOUT</a>
+                <a href="<?= BASE_URL ?>auth/logout.php">LOGOUT</a>
             </li>
 
         <?php else: ?>
 
-            <li class="<?= (isActive('/pages/login.php') || isActive('/pages/register.php')) ? 'active' : '' ?>">
-                <a href="/pages/login.php">LOGIN</a>
+            <li class="<?= (isActive('login.php') || isActive('register.php')) ? 'active' : '' ?>">
+                <a href="<?= BASE_URL ?>pages/login.php">LOGIN</a>
             </li>
 
         <?php endif; ?>
