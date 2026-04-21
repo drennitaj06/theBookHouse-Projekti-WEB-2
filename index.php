@@ -177,7 +177,7 @@
             </div>
 
             <div class="book main-book" data-book-id="2">
-                <img src="<?= BASE_URL ?>assets/images/coverimages/a_christmas_carol.jpg" alt="Book 2">
+                <img src="<?= BASE_URL ?>assets/images/coverimages/tao_te_ching.jpg" alt="Book 2">
             </div>
 
             <div class="book rotated-book-right" data-book-id="3">
