@@ -8,10 +8,10 @@
                 <p>Dive into our latest collection of bestsellers, carefully curated to inspire and delight.</p>
             </div>
             <div class="buttons">
-                <a href="pages/books.php">
+                <a href="<?= BASE_URL ?>pages/books.php">
                     <button>Explore Collection</button>
                 </a>
-                <a href="pages/login.php">
+                <a href="<?= BASE_URL ?>pages/login.php">
                     <button>Shop Now</button>
                 </a>
             </div>
@@ -25,10 +25,10 @@
                 <p>Find books that resonate with your taste using our personalized recommendations.</p>
             </div>
             <div class="buttons">
-                <a href="pages/login.php" class="learnMoreLink">
+                <a href="<?= BASE_URL ?>pages/login.php" class="learnMoreLink">
                     <button>Get Recommendations</button>
                 </a>
-                <a href="pages/books.php">
+                <a href="<?= BASE_URL ?>pages/books.php">
                     <button>Browse All</button>
                 </a>
             </div>
@@ -42,7 +42,7 @@
                 <p>Join our book club and explore thought-provoking reads chosen by literary experts.</p>
             </div>
             <div class="buttons">
-                <a href="pages/login.php">
+                <a href="<?= BASE_URL ?>pages/login.php">
                     <button>Join Now</button>
                 </a>
             </div>
@@ -56,10 +56,10 @@
                 <p>Be the first to read our newest additions, fresh off the press.</p>
             </div>
             <div class="buttons">
-                <a class="newBooksButton" href="pages/books.php">
+                <a class="newBooksButton" href="<?= BASE_URL ?>pages/books.php">
                     <button>Browse New Arrivals</button>
                 </a>
-                <a href="pages/login.php">
+                <a href="<?= BASE_URL ?>pages/login.php">
                     <button>Pre-Order</button>
                 </a>
             </div>
@@ -80,7 +80,7 @@
                     <p>We offer a vast selection of books across all genres to suit every reader.</p>
                 </div>
                 <div class="card-back">
-                    <div class="bg-image" style="background-image: url('assets/images/genres.jpg');"></div>
+                    <div class="bg-image" style="background-image: url('<?= BASE_URL ?>assets/images/genres.jpg');"></div>
                     <h2>Explore Our Genres</h2>
                 </div>
             </div>
@@ -93,7 +93,7 @@
                     <p>Join us for book readings, author signings, and discussion groups.</p>
                 </div>
                 <div class="card-back">
-                    <div class="bg-image" style="background-image: url('assets/images/events.jpg');"></div>
+                    <div class="bg-image" style="background-image: url('<?= BASE_URL ?>assets/images/events.jpg');"></div>
                     <h2>Join Our Events</h2>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     <p>Get tailored book suggestions from our experienced staff.</p>
                 </div>
                 <div class="card-back">
-                    <div class="bg-image" style="background-image: url('assets/images/recommendations.jpg');"></div>
+                    <div class="bg-image" style="background-image: url('<?= BASE_URL ?>assets/images/recommendations.jpg');"></div>
                     <h2>Get Custom Picks</h2>
                 </div>
             </div>
@@ -123,7 +123,10 @@
             We believe in fostering a love of reading by providing a cozy space, a wide range of books,
             and engaging events for our community.
         </p>
-        <a href="#" class="learn-more-btn" id="learnMoreBtn">Learn More About Us</a>
+
+        <a href="#" class="learn-more-btn" id="learnMoreBtn">
+            Learn More About Us
+        </a>
     </div>
 </section>
 
@@ -162,7 +165,7 @@
     <div class="section4-content">
         <div class="section4-title">
             <h1>Discover the Newest Books</h1>
-            <a href="pages/books.php" class="newBooksButton">
+            <a href="<?= BASE_URL ?>pages/books.php" class="newBooksButton">
                 <button>See What's New</button>
             </a>
         </div>
@@ -170,15 +173,15 @@
         <div class="books-wrapper">
 
             <div class="book rotated-book-left" data-book-id="1">
-                <img src="assets/images/coverimages/kosovo_a_short_story.jpg" alt="Book 1">
+                <img src="<?= BASE_URL ?>assets/images/coverimages/kosovo_a_short_story.jpg" alt="Book 1">
             </div>
 
             <div class="book main-book" data-book-id="2">
-                <img src="assets/images/coverimages/a_christmas_carol.jpg" alt="Book 2">
+                <img src="<?= BASE_URL ?>assets/images/coverimages/a_christmas_carol.jpg" alt="Book 2">
             </div>
 
             <div class="book rotated-book-right" data-book-id="3">
-                <img src="assets/images/coverimages/the_brothers_karamazov.jpg" alt="Book 3">
+                <img src="<?= BASE_URL ?>assets/images/coverimages/the_brothers_karamazov.jpg" alt="Book 3">
             </div>
 
         </div>
