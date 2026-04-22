@@ -1,0 +1,226 @@
+body {
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    background: #ffffff;  /* pure white background */
+}
+
+/* Reset & Base */
+.books * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Main container for auth pages - accounts for fixed header (95.8px) */
+.books {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 95.8px);  /* no scroll, fits exactly */
+    margin-top: 95.8px;
+    padding: 0 2rem;
+}
+
+/* Form Container - clean white card with subtle border */
+.form-container {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    width: 100%;
+    border-radius: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef2f6;
+}
+
+/* Login form narrower */
+.books:not(.books-signup) .form-container {
+    max-width: 500px;
+}
+
+/* Register form wider with 2 columns */
+.books-signup .form-container {
+    max-width: 800px;
+}
+
+/* Form heading */
+.sign-heading {
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    letter-spacing: -0.5px;
+    position: relative;
+    padding-bottom: 0.75rem;
+}
+
+.sign-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: #dc8814;
+    border-radius: 3px;
+}
+
+/* Grid layout for register form */
+.books-signup form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+/* Full width items */
+.books-signup button.submit,
+.books-signup p.link {
+    grid-column: span 2;
+}
+
+/* Input field container */
+.input-div {
+    position: relative;
+    width: 100%;
+}
+
+.input-div .input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 1rem;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    outline: none;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+    font-family: inherit;
+}
+
+.input-div .input:focus {
+    border-color: #dc8814;
+    box-shadow: 0 0 0 3px rgba(220, 136, 20, 0.1);
+    background-color: #ffffff;
+}
+
+.input-div .input:not(:focus)::placeholder {
+    color: transparent;
+}
+
+/* Floating label */
+.input-div label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    background-color: #ffffff;
+    padding: 0 0.5rem;
+    color: #64748b;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    pointer-events: none;
+    border-radius: 20px;
+}
+
+.input-div .input:focus + label,
+.input-div .input:not(:placeholder-shown) + label {
+    top: 0px;
+    left: 0.8rem;
+    font-size: 0.75rem;
+    color: #dc8814;
+    background-color: #ffffff;
+    font-weight: 500;
+}
+
+/* Password toggle icon */
+.input-div svg {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #64748b;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    transition: fill 0.2s;
+}
+
+.input-div svg:hover {
+    fill: #dc8814;
+}
+
+/* Eye icon paths */
+.eye-icon path {
+    d: path("M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.5-160.5T480-720q-113 0-207.5 59.5T128-500q50 101 144.5 160.5T480-280Z");
+}
+
+.eye-slash path {
+    d: path("M644-428l-58-58q9-47-27-88t-93-32l-58-58q17-8 34.5-12t37.5-4q75 0 127.5 52.5T660-500q0 20-4 37.5T644-428Zm128 126l-58-56q38-29 67.5-63.5T832-500q-50-101-143.5-160.5T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.5t90-8.5q151 0 269 83.5T920-500q-23 59-60.5 109.5T772-302Zm20 246L624-222q-35 11-70.5 16.5T480-200q-151 0-269-83.5T40-500q21-53 53-98.5t73-81.5L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.5 160.5T480-280q20 0 39-2.5t39-5.5l-36-38q-11 3-21 4.5t-21 1.5q-75 0-127.5-52.5T300-500q0-11 1.5-21t4.5-21l-84-82Z");
+}
+
+/* Submit button - orange on hover */
+.submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+    letter-spacing: 0.3px;
+}
+
+.submit:hover {
+    background-color: #dc8814;
+    transform: scale(0.98);
+}
+
+/* Link styles */
+.link {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #334155;
+    margin-top: 1.5rem;
+}
+
+.link a {
+    color: #dc8814;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.link a:hover {
+    color: #b06b0f;
+    text-decoration: underline;
+}
+
+/* Remove number input spinners */
+.input::-webkit-outer-spin-button,
+.input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Responsive: single column on small screens */
+@media (max-width: 700px) {
+    .books-signup form {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .books-signup button.submit,
+    .books-signup p.link {
+        grid-column: span 1;
+    }
+    
+    .books {
+        padding: 1rem 1rem;
+    }
+    
+    .form-container {
+        padding: 1.5rem;
+    }
+}
