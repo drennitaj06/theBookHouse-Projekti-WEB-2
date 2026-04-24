@@ -7,8 +7,6 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Normalize URI
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-// Get current page
 $currentPage = basename($uri);
 
 // Helper function
@@ -18,6 +16,9 @@ function isActive($page) {
 
 // Detect homepage
 $isHome = ($currentPage === 'index.php');
+
+$user = $_SESSION['user'] ?? null;
+$isAdmin = $user && $user['role'] === 'admin';
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +42,6 @@ $isHome = ($currentPage === 'index.php');
         <link rel="stylesheet" href="<?= BASE_URL ?>assets/css/pages.css">
     <?php endif; ?>
 
-    <!-- Favicon -->
     <link rel="icon" href="<?= BASE_URL ?>assets/images/logo.jpg">
 
     <title>the BookHouse</title>
@@ -56,38 +56,56 @@ $isHome = ($currentPage === 'index.php');
     </div>
 
     <ul class="ulIndex">
+
+        <!-- HOME -->
         <li class="<?= $isHome ? 'active' : '' ?>">
             <a href="<?= BASE_URL ?>index.php">HOME</a>
         </li>
 
-        <li class="<?= isActive('books.php') ? 'active' : '' ?>">
-            <a href="<?= BASE_URL ?>pages/books.php">BOOKS</a>
-        </li>
-
-        <?php if (isset($_SESSION['user'])): ?>
-
-            <li class="<?= isActive('profile.php') ? 'active' : '' ?>">
-                <a href="<?= BASE_URL ?>pages/profile.php">PROFILE</a>
+        <!-- BOOKS (VISIBLE for guests + users, HIDDEN for admin) -->
+        <?php if (!$isAdmin): ?>
+            <li class="<?= isActive('books.php') ? 'active' : '' ?>">
+                <a href="<?= BASE_URL ?>pages/books.php">BOOKS</a>
             </li>
+        <?php endif; ?>
 
-            <?php if ($_SESSION['user']['role'] === 'admin'): ?>
-                <li>
-                    <a href="<?= BASE_URL ?>pages/admin/dashboard.php">ADMIN</a>
+        <?php if ($user): ?>
+
+            <?php if ($isAdmin): ?>
+
+                <!-- ADMIN NAV -->
+                <li class="<?= isActive('manageBooks.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/admin/manageBooks.php">BOOKS</a>
                 </li>
+
+                <li class="<?= isActive('dashboard.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/admin/dashboard.php">DASHBOARD</a>
+                </li>
+
+            <?php else: ?>
+
+                <!-- USER NAV -->
+                <li class="<?= isActive('profile.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/profile.php">PROFILE</a>
+                </li>
+
             <?php endif; ?>
 
+            <!-- LOGOUT -->
             <li>
                 <a href="<?= BASE_URL ?>auth/logout.php">LOGOUT</a>
             </li>
 
         <?php else: ?>
 
-            <li class="<?= (isActive('login.php') || isActive('register.php')) ? 'active' : '' ?>">
+            <!-- NOT LOGGED IN -->
+            <li class="<?= isActive('login.php') ? 'active' : '' ?>">
                 <a href="<?= BASE_URL ?>pages/login.php">LOGIN</a>
             </li>
 
         <?php endif; ?>
+
     </ul>
 
-    <div class="menu-toggle">&#9776;</div> 
+    <div class="menu-toggle">&#9776;</div>
 </header>
