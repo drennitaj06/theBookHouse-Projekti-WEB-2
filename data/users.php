@@ -37,6 +37,30 @@ $users = array (
     'address' => '',
     'role' => 'user',
   ),
+  3 => 
+  array (
+    'id' => 4,
+    'name' => 'Drini',
+    'surname' => 'Gashi',
+    'username' => 'drini',
+    'email' => 'drini@email.com',
+    'password' => '$2y$10$imYzpJdM9rolSYurPq4soezkfJPzz9UzLWa1SEGUjP/.pWl7C4peO',
+    'phone' => '',
+    'address' => '',
+    'role' => 'user',
+  ),
+  4 => 
+  array (
+    'id' => 5,
+    'name' => 'Albion',
+    'surname' => 'Mazrekaj',
+    'username' => 'albion',
+    'email' => 'albion@email.com',
+    'password' => '$2y$10$kxje2/WzOQFZXyGUbSb/IukXVZz6CbG88UX57ZuTbUgM.pCWbAyP.',
+    'phone' => '',
+    'address' => '',
+    'role' => 'user',
+  ),
 );
 
 ?>
