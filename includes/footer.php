@@ -3,30 +3,65 @@
 if (!defined('BASE_URL')) {
     require_once dirname(__DIR__) . '/config/constants.php';
 }
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+$user = $_SESSION['user'] ?? null;
+$isAdmin = $user && $user['role'] === 'admin';
 ?>
 
 <footer class="site-footer">
     <div class="footer-container">
 
+        <!-- PAGES + LEGAL -->
         <div class="footer-pages-legal">
+
             <div class="footer-menu">
                 <h3>Pages</h3>
                 <ul>
-                    <li><a href="<?= BASE_URL ?>index.php">Home</a></li>
-                    <li><a href="<?= BASE_URL ?>pages/books.php">Books</a></li>
 
-                    <?php if(isset($_SESSION['user'])): ?>
-                        <li><a href="<?= BASE_URL ?>pages/profile.php">Profile</a></li>
+                    <li>
+                        <a href="<?= BASE_URL ?>index.php">Home</a>
+                    </li>
 
-                        <?php if($_SESSION['user']['role'] === 'admin'): ?>
-                            <li><a href="<?= BASE_URL ?>pages/admin/dashboard.php">Admin</a></li>
+                    <?php if (!$isAdmin): ?>
+                        <li>
+                            <a href="<?= BASE_URL ?>pages/books.php">Books</a>
+                        </li>
+                    <?php endif; ?>
+
+                    <?php if ($user): ?>
+
+                        <?php if ($isAdmin): ?>
+
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/admin/manageBooks.php">Books</a>
+                            </li>
+
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/admin/dashboard.php">Dashboard</a>
+                            </li>
+
+                        <?php else: ?>
+
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/profile.php">Profile</a>
+                            </li>
+
                         <?php endif; ?>
 
-                        <li><a href="<?= BASE_URL ?>auth/logout.php">Log Out</a></li>
-
                     <?php else: ?>
-                        <li><a href="<?= BASE_URL ?>pages/login.php">Log In</a></li>
+
+                        <li>
+                            <a href="<?= BASE_URL ?>pages/login.php">Log In</a>
+                        </li>
+
                     <?php endif; ?>
+
                 </ul>
             </div>
 
@@ -39,8 +74,10 @@ if (!defined('BASE_URL')) {
                     <li><a href="#">Accessibility</a></li>
                 </ul>
             </div>
+
         </div>
 
+        <!-- SOCIAL -->
         <div class="footer-social">
             <h3>Follow Us</h3>
             <ul>
