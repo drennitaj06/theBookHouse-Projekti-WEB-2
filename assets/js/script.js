@@ -59,44 +59,6 @@ setInterval(showNextSection, 10000);
 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    const learnMoreBtn = document.getElementById('learnMoreBtn');
-    const aboutOverlay = document.getElementById('aboutOverlay');
-    const closeOverlay = document.getElementById('closeOverlay');
-
-    // Ensure overlay is hidden on load
-    aboutOverlay.style.display = 'none';
-    document.body.style.overflow = 'auto';
-
-    if (learnMoreBtn && aboutOverlay && closeOverlay) {
-        learnMoreBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            aboutOverlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeOverlay.addEventListener('click', function() {
-            aboutOverlay.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-
-        aboutOverlay.addEventListener('click', function(e) {
-            if (e.target === aboutOverlay) {
-                aboutOverlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    }
-});
-
-
-
-
-
-
-
-
-
 
 
 // Intersection Observer setup for observing when sections are 50% visible
