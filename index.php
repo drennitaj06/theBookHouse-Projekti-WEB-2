@@ -124,42 +124,11 @@
             and engaging events for our community.
         </p>
 
-        <a href="#" class="learn-more-btn" id="learnMoreBtn">
+        <a href="#" class="learn-more-btn">
             Learn More About Us
         </a>
     </div>
 </section>
-
-<div class="overlay" id="aboutOverlay">
-    <div class="overlay-content">
-        <span class="close-btn" id="closeOverlay">&times;</span>
-
-        <h2>Our Story</h2>
-        <div class="overlay-image"></div>
-
-        <p>
-            Founded in 2010, The BookHouse began as a small neighborhood bookstore with just 500 titles.
-            Today, we're proud to house over 50,000 books across all genres.
-        </p>
-
-        <h3>Our Philosophy</h3>
-        <p>
-            We believe books have the power to transform lives. Our curated collection is designed to inspire, educate, and entertain.
-        </p>
-
-        <h3>The BookHouse Experience</h3>
-        <p class="list-p">• Comfortable reading nooks</p>
-        <p class="list-p">• Children's corner with storytime</p>
-        <p class="list-p">• In-house café</p>
-        <p class="list-p">• Monthly author events</p>
-        <p class="list-p">• Writing workshops</p>
-
-        <h3>Our Team</h3>
-        <p>
-            Our staff consists of passionate readers who provide personalized recommendations.
-        </p>
-    </div>
-</div>
 
 <section id="section4">
     <div class="section4-content">
