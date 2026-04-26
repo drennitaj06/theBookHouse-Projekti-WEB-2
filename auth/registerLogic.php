@@ -92,5 +92,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $fileContent = "<?php\n\n\$users = " . var_export($users, true) . ";\n\n?>";
 
     file_put_contents($filePath, $fileContent);
+    $user = new User($newUserData);
 
+    // ===== AUTO LOGIN =====
+    $_SESSION['user'] = [
+        'id' => $user->getId(),
+        'name' => $user->getFullName(),
+        'username' => $user->getUsername(),
+        'role' => 'user'
+    ];
+
+    //success message (for later UI)
+    $_SESSION['success'] = "Account created successfully!";
+
+    header("Location: " . BASE_URL . "pages/books.php");
+    exit;
 }
