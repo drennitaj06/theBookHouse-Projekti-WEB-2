@@ -44,17 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $errors['confirmed_password'] = "Passwords do not match";
     }
 
-    // ===== IF ERRORS =====
-    if (!empty($errors)) {
-
-        $errorMessage = implode("<br>", array_values($errors));
-
-        $_SESSION['error'] = $errorMessage;
-        $_SESSION['old'] = $_POST;
-
-        header("Location: " . BASE_URL . "pages/register.php");
-        exit;
-    }
     // ===== UNIQUE CHECKS =====
     foreach ($users as $u) {
         if ($u['email'] === $email) {
@@ -66,7 +55,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }
     }
 
-   
+    // ===== IF ERRORS =====
+    if (!empty($errors)) {
+
+        $errorMessage = implode("<br>", array_values($errors));
+
+        $_SESSION['error'] = $errorMessage;
+        $_SESSION['old'] = $_POST;
+
+        header("Location: " . BASE_URL . "pages/register.php");
+        exit;
+    }   
 
     // ===== HASH PASSWORD =====
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
