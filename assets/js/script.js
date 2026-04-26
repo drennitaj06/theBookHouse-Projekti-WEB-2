@@ -106,3 +106,27 @@ const observer = new IntersectionObserver(observerCallback, observerOptions);
 document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 });
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const alerts = document.querySelectorAll(".alert");
+
+    alerts.forEach(alertBox => {
+        setTimeout(() => {
+            alertBox.classList.add("fade-out");
+
+            setTimeout(() => {
+                alertBox.remove();
+            }, 500);
+        }, 5000);
+    });
+});
