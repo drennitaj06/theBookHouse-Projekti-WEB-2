@@ -1,9 +1,6 @@
 <?php
 require_once dirname(__DIR__) . '/config/constants.php';
-
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
+require_once dirname(__DIR__) . "/auth/sessionCheck.php";
 
 // Normalize URI
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
@@ -48,6 +45,25 @@ $isAdmin = $user && $user['role'] === 'admin';
 </head>
 
 <body>
+
+<?php
+$success = $_SESSION['success'] ?? null;
+$error = $_SESSION['error'] ?? null;
+
+unset($_SESSION['success'], $_SESSION['error']);
+?>
+
+<?php if ($success): ?>
+    <div class="alert success">
+        <?= htmlspecialchars($success) ?>
+    </div>
+<?php endif; ?>
+
+<?php if ($error): ?>
+    <div class="alert error">
+        <?= $error ?>
+    </div>
+<?php endif; ?>
 
 <header>
     <div class="logo">
