@@ -1,10 +1,13 @@
+<?php require_once "../auth/sessionCheck.php"; ?>
 <?php require_once "../includes/header.php"; ?>
+
+<?php blockIfLoggedIn(); ?>
 
 <style>
 footer {
     display: none;
 }
-body{
+body {
     height: 100vh;
     overflow: hidden;
 }
@@ -21,29 +24,32 @@ body{
         <h1 class="sign-heading">Create Account</h1>
 
         <form action="<?= BASE_URL ?>auth/registerLogic.php" method="post">
+
             <div class="input-div">
-                <input type="text" class="input" placeholder="Name" name="name" required>
+                <input type="text" class="input" name="name" placeholder="Name" required>
                 <label>Name</label>
             </div>
 
             <div class="input-div">
-                <input type="text" class="input" placeholder="Surname" name="surname" required>
+                <input type="text" class="input" name="surname" placeholder="Surname" required>
                 <label>Surname</label>
             </div>
 
             <div class="input-div">
-                <input type="text" class="input" placeholder="Username" name="username" required>
+                <input type="text" class="input" name="username" placeholder="Username" required>
                 <label>Username</label>
             </div>
 
             <div class="input-div">
-                <input type="email" class="input" placeholder="Email" name="email" required>
+                <input type="email" class="input" name="email" placeholder="Email" required>
                 <label>Email</label>
             </div>
 
             <div class="input-div">
-                <input type="password" class="input password" id="password" placeholder="Password" name="password" required>
+                <input type="password" class="input password" id="password" placeholder="Password"
+                       name="password" required>
                 <label>Password</label>
+
                 <svg class="toggle-password eye-icon"
                      xmlns="http://www.w3.org/2000/svg"
                      height="24px"
@@ -55,8 +61,10 @@ body{
             </div>
 
             <div class="input-div">
-                <input type="password" class="input password" id="confirmed_password" placeholder="Confirm Password" name="confirmed_password" required>
+                <input type="password" class="input password" id="confirmed_password" placeholder="Confirm Password"
+                       name="confirmed_password" required>
                 <label>Confirm Password</label>
+
                 <svg class="toggle-password eye-icon"
                      xmlns="http://www.w3.org/2000/svg"
                      height="24px"
@@ -68,12 +76,12 @@ body{
             </div>
 
             <div class="input-div">
-                <input type="number" class="input" placeholder="Phone (optional)" name="phone">
+                <input type="number" class="input" name="phone" placeholder="Phone (optional)">
                 <label>Phone</label>
             </div>
 
             <div class="input-div">
-                <input type="text" class="input" placeholder="Address (optional)" name="address">
+                <input type="text" class="input" name="address" placeholder="Address (optional)">
                 <label>Address</label>
             </div>
 
@@ -83,6 +91,7 @@ body{
                 Already have an account?
                 <a href="<?= BASE_URL ?>pages/login.php">Sign in</a>
             </p>
+
         </form>
     </div>
 </div>
