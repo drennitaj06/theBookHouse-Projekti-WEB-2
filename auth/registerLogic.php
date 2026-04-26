@@ -55,4 +55,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: " . BASE_URL . "pages/register.php");
         exit;
     }
+    // ===== UNIQUE CHECKS =====
+    foreach ($users as $u) {
+        if ($u['email'] === $email) {
+            $errors['email'] = "Email already exists";
+        }
+
+        if ($u['username'] === $username) {
+            $errors['username'] = "Username already exists";
+        }
+    }
+
+   
+
+    // ===== HASH PASSWORD =====
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
+    // ===== CREATE USER =====
+    $newUserData = [
+        'id' => max(array_column($users, 'id')) + 1,
+        'name' => $name,
+        'surname' => $surname,
+        'username' => $username,
+        'email' => $email,
+        'password' => $hashedPassword,
+        'phone' => $phone,
+        'address' => $address,
+        'role' => 'user'
+    ];
+
+    $users[] = $newUserData;
+
+    // ===== SAVE TO FILE =====
+    $filePath = __DIR__ . "/../data/users.php";
+
+    $fileContent = "<?php\n\n\$users = " . var_export($users, true) . ";\n\n?>";
+
+    file_put_contents($filePath, $fileContent);
+
 }
