@@ -44,7 +44,12 @@ body{
                 </svg>
             </div>
 
-            <br>
+            <div style="display:flex; align-items:center; gap:10px; margin:10px 0;">
+                <input type="checkbox" name="remember" id="remember">
+                <label for="remember" style="position:static; font-size:0.9rem; color:#334155;">
+                    Remember me
+                </label>
+            </div>
 
             <button class="submit" type="submit">Sign in</button>
 
