@@ -1,0 +1,272 @@
+/* ===== PAGE WRAPPER (FULL CENTER FIX) ===== */
+.page-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 110px 0 40px;
+}
+
+/* ===== TITLE ===== */
+.page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+    background: #fefefe;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== SEARCH ===== */
+.search-box input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 220px;
+    outline: none;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+/* hidden menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background: #f2f2f2;
+}
+
+/* hover effect */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ===== APPLY BUTTON ===== */
+.apply-btn {
+    padding: 10px 16px;
+    border: none;
+    background: rgb(220,136,20);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ===== RESPONSIVE CONTROLS BAR ===== */
+@media (max-width: 768px) {
+    .controls-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        width: 80%;
+    }
+
+    .search-box input {
+        min-width: 100%;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropbtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* ===== TABLE WRAPPER (SCROLL) ===== */
+.table-wrapper {
+    width: 90%;
+    margin: 20px auto 40px;
+}
+
+/* ===== TABLE ===== */
+#table {
+    width: 90%;
+    margin: 40px auto;
+    border-collapse: collapse;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    min-width: 900px;
+}
+
+#table thead {
+    background: #1e1e1e;
+    color: #fff;
+}
+
+#table th, #table td {
+    padding: 14px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+#table tbody tr {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#table tbody tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+#table tbody tr:hover {
+    background: #e9ecef;
+}
+
+/* ===== LINKS ===== */
+#table .edit-link {
+    color: #007bff;
+}
+
+#table .delete-link {
+    color: #dc3545;
+}
+
+#table .edit-link:hover {
+    color: #0056b3;
+}
+
+#table .delete-link:hover {
+    color: #c82333;
+}
+
+/* ===== IMAGE ===== */
+.cover-image {
+    width: 60px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.cover-image-td {
+    height: 90px;
+}
+
+/* ===== PRICE ===== */
+.price {
+    text-align: right;
+    font-weight: bold;
+    color: #28a745;
+}
+
+
+/* ===== MOBILE IMPROVEMENTS ===== */
+@media (max-width: 768px) {
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .controls-bar {
+        width: 90%;
+    }
+
+    /* Slightly tighter table */
+    #table th, 
+    #table td {
+        padding: 10px;
+        font-size: 0.85rem;
+    }
+
+    .cover-image {
+        width: 45px;
+        height: 65px;
+    }
+
+    /* Make table scrollable ONLY on smaller screens */
+    .table-wrapper {
+        max-height: 60vh;
+        overflow: auto;
+
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* Fix table sizing inside wrapper */
+    #table {
+        width: 100%;
+        margin: 0;
+        min-width: 800px;
+    }
+
+    /* Sticky header */
+    #table thead th {
+        position: sticky;
+        top: 0;
+        background: #1e1e1e;
+        z-index: 2;
+    }
+}
+
+
+/* ===== VERY SMALL DEVICES ===== */
+@media (max-width: 480px) {
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    #table th, 
+    #table td {
+        padding: 8px;
+        font-size: 0.75rem;
+    }
+
+    .cover-image {
+        width: 35px;
+        height: 50px;
+    }
+}
+
+
+footer {
+    display: none;
+}
