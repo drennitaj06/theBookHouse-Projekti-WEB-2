@@ -679,3 +679,151 @@ body {
 
 
 
+/* ===== BOOK DETAILS LAYOUT ===== */
+.book-details-container {
+    width: 100%;
+    max-width: 90%;
+
+    display: flex;
+    gap: 50px;
+
+    margin-top: 20px;
+}
+
+/* ===== IMAGE ===== */
+.book-image {
+    width: 320px;
+    height: 500px;
+
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+    border: 1px solid #ddd;
+}
+
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== OVERLAY ===== */
+.out-of-stock-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.out-of-stock-overlay h1 {
+    background: red;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* ===== DETAILS ===== */
+.book-details {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-details h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.book-details h2 {
+    color: #777;
+    margin-top: -10px;
+}
+
+.category {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== PRICE / STOCK ===== */
+.price-stock {
+    display: flex;
+    gap: 40px;
+}
+
+.price {
+    color: rgb(220,136,20);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.stock {
+    font-weight: bold;
+}
+
+/* ===== ACTIONS ===== */
+.book-actions, .profile-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.book-actions a, .profile-actions a{
+    flex: 1;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid #000;
+
+    transition: 0.2s;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .book-details-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-image {
+        width: 260px;
+        height: 400px;
+    }
+
+    .price-stock {
+        justify-content: center;
+    }
+
+    .book-actions, .profile-actions{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-actions a{
+        width: 60%;
+    }
+
+    .profile-actions a{
+        width: 100%;
+    }
+}
