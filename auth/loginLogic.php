@@ -13,12 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     foreach ($users as $u) {
 
-        // check username first
         if ($u['username'] !== $username) {
             continue;
         }
 
-        // TEMP: allow plain passwords for dummy data
         if (password_verify($password, $u['password']) || $u['password'] === $password) {
 
             // ===== ROLE CHECK =====
@@ -34,8 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ];
 
                 $_SESSION['success'] = "Welcome back, Admin!";
-                header("Location: " . BASE_URL . "pages/admin/dashboard.php");
-                exit;
+                $redirect = "pages/admin/dashboard.php";
 
             } else {
 
@@ -49,16 +46,29 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 ];
 
                 $_SESSION['success'] = "Welcome back!";
-                header("Location: " . BASE_URL . "pages/books.php");
-                exit;
+                $redirect = "pages/books.php";
             }
+
+            // ===== REMEMBER ME COOKIE =====
+            if (isset($_POST['remember'])) {
+                setcookie(
+                    "remember_user",
+                    json_encode($_SESSION['user']),
+                    time() + (86400 * 7), // 7 days
+                    "/",
+                    "",
+                    false,
+                    true
+                );
+            }
+
+            header("Location: " . BASE_URL . $redirect);
+            exit;
         }
 
-        // username matched but password wrong → break early
         break;
     }
 
-    // ===== GENERIC ERROR =====
     $_SESSION['error'] = "Invalid username or password";
     header("Location: " . BASE_URL . "pages/login.php");
     exit;

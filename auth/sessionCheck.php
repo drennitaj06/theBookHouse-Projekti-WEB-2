@@ -6,6 +6,15 @@ if (session_status() === PHP_SESSION_NONE) {
 
 require_once dirname(__DIR__) . '/config/constants.php';
 
+// ===== AUTO LOGIN FROM COOKIE =====
+if (!isset($_SESSION['user']) && isset($_COOKIE['remember_user'])) {
+
+    $cookieData = json_decode($_COOKIE['remember_user'], true);
+
+    if ($cookieData && isset($cookieData['id'])) {
+        $_SESSION['user'] = $cookieData;
+    }
+}
 
 function requireLogin() {
     if (!isset($_SESSION['user'])) {
@@ -23,7 +32,6 @@ function requireUser() {
         exit();
     }
 }
-
 
 function enforceSessionTimeout($timeout = 1800) {
     if (!isset($_SESSION['user'])) {
