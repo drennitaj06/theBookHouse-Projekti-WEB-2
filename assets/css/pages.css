@@ -338,3 +338,492 @@ body {
         transform: scale(1);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== PAGE WRAPPER (FULL CENTER FIX) ===== */
+.page-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 110px 0 40px;
+}
+
+/* ===== TITLE ===== */
+.page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    font-weight: 700;
+}
+
+/* ===== CONTROLS BAR ===== */
+.controls-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px;
+    margin-bottom: 10px;
+
+    border-radius: 12px;
+    background: #fefefe;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===== SEARCH ===== */
+.search-box input {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 220px;
+    outline: none;
+}
+
+/* ===== DROPDOWN ===== */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background: white;
+    cursor: pointer;
+}
+
+/* hidden menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+}
+
+.dropdown-content a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-content a:hover {
+    background: #f2f2f2;
+}
+
+/* hover effect */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ===== APPLY BUTTON ===== */
+.apply-btn {
+    padding: 10px 16px;
+    border: none;
+    background: rgb(220,136,20);
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ===== CONTAINER (CENTERED PROFESSIONAL GRID) ===== */
+.books_container {
+    width: 100%;
+    display: grid;
+
+    /* FIX: use fixed card width */
+    grid-template-columns: repeat(auto-fit, 320px);
+
+    justify-content: center; /* THIS now works perfectly */
+    gap: 60px 40px;
+
+    padding: 60px 0;
+    gap: 40px;
+}
+
+
+/* ===== CARD ===== */
+.book-card {
+    width: 100%;
+    max-width: 280px; /* slightly bigger than before */
+    padding: 18px;
+    margin: 0;
+
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+}
+
+
+/* ===== IMAGE ===== */
+.book-card-link {
+    width: 85%;
+    max-width: 85%;
+    height: 340px;
+
+    display: block;
+    margin: 0 auto 12px;
+
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.book-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in-out;
+}
+
+.book-card:hover img{
+    transform: scale(1.025);
+    transition: transform 0.2s ease-in-out;
+}
+
+
+/* ===== TITLE / AUTHOR / PRICE ===== */
+.title-author-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-author {
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0;
+}
+
+.title-author h1 {
+    font-size: 1.2rem;
+    margin: 0;
+
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.title-author h2 {
+    font-size: 0.9rem;
+    margin: 0;
+    color: rgb(138, 138, 138);
+}
+
+.price {
+    font-size: 1.1rem;
+    color: rgb(220,136,20);
+    font-weight: bold;
+}
+
+
+/* ===== BUTTONS ===== */
+.cart-wishlist {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.cart-wishlist a {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-size: 0.85rem;
+
+    transition: 0.2s;
+}
+
+.cart-wishlist svg {
+    margin-right: 5px;
+}
+
+
+/* ===== PURCHASE ===== */
+.purchase-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+
+    text-decoration: none;
+    font-size: 0.9rem;
+
+    color: rgb(220,136,20);
+    transition: 0.2s;
+}
+
+.purchase-button svg {
+    margin-right: 5px;
+    fill: rgb(220,136,20);
+}
+
+.purchase-button:hover {
+    background-color: rgb(220,136,20);
+    color: white;
+}
+
+.purchase-button:hover svg {
+    fill: white;
+}
+
+
+/* ===== ADD / WISHLIST STATES ===== */
+.add, .profile-actions a {
+    color: rgb(220,136,20);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.add svg, .profile-actions a svg {
+    fill: rgb(220,136,20);
+}
+
+.add:hover, .profile-actions a:hover {
+    background-color: rgb(220,136,20);
+    color: white;
+}
+
+.add:hover svg, .profile-actions a:hover svg {
+    fill: white;
+}
+
+
+/* ===== RESPONSIVE TUNING ===== */
+
+/* slightly tighter spacing */
+@media (max-width: 900px) {
+    .books_container {
+        gap: 40px 25px;
+        padding: 40px 0;
+    }
+
+    .book-card-link {
+        height: 320px;
+    }
+}
+
+/* ===== RESPONSIVE CONTROLS BAR ===== */
+@media (max-width: 768px) {
+    .controls-bar {
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding: 15px;
+        width: 80%;
+    }
+
+    .search-box input {
+        min-width: 100%;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropbtn {
+        width: 100%;
+        text-align: center;
+    }
+
+    .dropdown-content {
+        width: 100%;
+        left: 0;
+    }
+}
+
+/* mobile */
+@media (max-width: 500px) {
+    .books_container {
+        gap: 30px;
+    }
+}
+
+
+
+
+/* ===== BOOK DETAILS LAYOUT ===== */
+.book-details-container {
+    width: 100%;
+    max-width: 90%;
+
+    display: flex;
+    gap: 50px;
+
+    margin-top: 20px;
+}
+
+/* ===== IMAGE ===== */
+.book-image {
+    width: 320px;
+    height: 500px;
+
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+
+    border: 1px solid #ddd;
+}
+
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== OVERLAY ===== */
+.out-of-stock-overlay {
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+}
+
+.out-of-stock-overlay h1 {
+    background: red;
+    padding: 10px 20px;
+    border-radius: 6px;
+    color: white;
+}
+
+/* ===== DETAILS ===== */
+.book-details {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.book-details h1 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.book-details h2 {
+    color: #777;
+    margin-top: -10px;
+}
+
+.category {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* ===== DESCRIPTION ===== */
+.description {
+    line-height: 1.6;
+    color: #333;
+}
+
+/* ===== PRICE / STOCK ===== */
+.price-stock {
+    display: flex;
+    gap: 40px;
+}
+
+.price {
+    color: rgb(220,136,20);
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.stock {
+    font-weight: bold;
+}
+
+/* ===== ACTIONS ===== */
+.book-actions, .profile-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.book-actions a, .profile-actions a{
+    flex: 1;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    border: 1px solid #000;
+
+    transition: 0.2s;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .book-details-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .book-image {
+        width: 260px;
+        height: 400px;
+    }
+
+    .price-stock {
+        justify-content: center;
+    }
+
+    .book-actions, .profile-actions{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .book-actions a{
+        width: 60%;
+    }
+
+    .profile-actions a{
+        width: 100%;
+    }
+}
