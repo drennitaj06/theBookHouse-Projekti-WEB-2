@@ -3,6 +3,11 @@
 
 <?php blockIfLoggedIn(); ?>
 
+<?php
+$old = $_SESSION['old'] ?? [];
+unset($_SESSION['old']);
+?>
+
 <style>
 footer {
     display: none;
@@ -26,27 +31,36 @@ body {
         <form action="<?= BASE_URL ?>auth/registerLogic.php" method="post">
 
             <div class="input-div">
-                <input type="text" class="input" name="name" placeholder="Name" required>
+                <input type="text" class="input" name="name"
+                       value="<?= htmlspecialchars($old['name'] ?? '') ?>"
+                       placeholder="Name" required>
                 <label>Name</label>
             </div>
 
             <div class="input-div">
-                <input type="text" class="input" name="surname" placeholder="Surname" required>
+                <input type="text" class="input" name="surname"
+                       value="<?= htmlspecialchars($old['surname'] ?? '') ?>"
+                       placeholder="Surname" required>
                 <label>Surname</label>
             </div>
 
             <div class="input-div">
-                <input type="text" class="input" name="username" placeholder="Username" required>
+                <input type="text" class="input" name="username"
+                       value="<?= htmlspecialchars($old['username'] ?? '') ?>"
+                       placeholder="Username" required>
                 <label>Username</label>
             </div>
 
             <div class="input-div">
-                <input type="email" class="input" name="email" placeholder="Email" required>
+                <input type="email" class="input" name="email"
+                       value="<?= htmlspecialchars($old['email'] ?? '') ?>"
+                       placeholder="Email" required>
                 <label>Email</label>
             </div>
 
             <div class="input-div">
-                <input type="password" class="input password" id="password" placeholder="Password"
+                <input type="password" class="input password" id="password"
+                       placeholder="Password"
                        name="password" required>
                 <label>Password</label>
 
@@ -61,7 +75,8 @@ body {
             </div>
 
             <div class="input-div">
-                <input type="password" class="input password" id="confirmed_password" placeholder="Confirm Password"
+                <input type="password" class="input password" id="confirmed_password"
+                       placeholder="Confirm Password"
                        name="confirmed_password" required>
                 <label>Confirm Password</label>
 
@@ -76,12 +91,16 @@ body {
             </div>
 
             <div class="input-div">
-                <input type="number" class="input" name="phone" placeholder="Phone (optional)">
+                <input type="number" class="input" name="phone"
+                       value="<?= htmlspecialchars($old['phone'] ?? '') ?>"
+                       placeholder="Phone (optional)">
                 <label>Phone</label>
             </div>
 
             <div class="input-div">
-                <input type="text" class="input" name="address" placeholder="Address (optional)">
+                <input type="text" class="input" name="address"
+                       value="<?= htmlspecialchars($old['address'] ?? '') ?>"
+                       placeholder="Address (optional)">
                 <label>Address</label>
             </div>
 
