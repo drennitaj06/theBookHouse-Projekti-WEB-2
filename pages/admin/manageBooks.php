@@ -40,22 +40,85 @@ if ($sort === 'price_asc') {
 $filteredBooks = normalizeArray($filteredBooks);
 ?>
 
-<link rel="stylesheet" href="../../assets/css/admin.css">
-
 <div class="page-wrapper">
 
     <h1 class="page-title">Manage Books</h1>
 
-    <!-- ===== CONTROLS (SAME AS books.php) ===== -->
+    <div class="forms-wrapper">
+
+        <!-- ADD AUTHOR -->
+        <form action="../../logic/authors/addAuthorLogic.php" method="POST" class="form-card">
+            <h2>Add Author</h2>
+
+            <div class="input-div">
+                <input type="text" name="name" class="input" placeholder=" " required>
+                <label>Author Name</label>
+            </div>
+
+            <button type="submit" class="submit">Add Author</button>
+        </form>
+
+        <!-- ADD BOOK -->
+        <form action="../../logic/books/addBookLogic.php" method="POST" class="form-card">
+            <h2>Add Book</h2>
+
+            <div class="input-div">
+                <input type="text" name="title" class="input" placeholder=" " required>
+                <label>Title</label>
+            </div>
+
+            <div class="input-div">
+                <select name="author_id" class="input">
+                    <?php foreach ($authors as $author): ?>
+                        <option value="<?= $author['author_id'] ?>">
+                            <?= $author['name'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <label>Author</label>
+            </div>
+
+            <div class="input-div">
+                <select name="category_id" class="input">
+                    <?php foreach ($categories as $cat): ?>
+                        <option value="<?= $cat['category_id'] ?>">
+                            <?= $cat['name'] ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+                <label>Category</label>
+            </div>
+
+            <div class="input-div">
+                <input type="number" step="0.01" name="price" class="input" placeholder=" " required>
+                <label>Price (€)</label>
+            </div>
+
+            <div class="input-div">
+                <input type="number" name="stock_quantity" class="input" placeholder=" " required>
+                <label>Stock</label>
+            </div>
+
+            <div class="input-div">
+                <input type="text" name="cover_image_url" class="input" placeholder=" ">
+                <label>Cover Image</label>
+            </div>
+
+            <div class="input-div">
+                <textarea name="description" class="input" placeholder=" "></textarea>
+                <label>Description</label>
+            </div>
+
+            <button type="submit" class="submit">Add Book</button>
+        </form>
+
+    </div>
+
+    <!-- ===== CONTROLS ===== -->
     <form method="GET" class="controls-bar">
 
         <div class="search-box">
-            <input 
-                type="text" 
-                name="q" 
-                placeholder="Search by title..." 
-                value="<?= htmlspecialchars($search) ?>"
-            >
+            <input type="text" name="q" placeholder="Search..." value="<?= htmlspecialchars($search) ?>">
         </div>
 
         <div class="dropdown">
@@ -83,7 +146,6 @@ $filteredBooks = normalizeArray($filteredBooks);
     </form>
 
     <div class="table-wrapper">
-        <!-- ===== TABLE ===== -->
         <table id="table">
             <thead>
                 <tr>
@@ -100,53 +162,25 @@ $filteredBooks = normalizeArray($filteredBooks);
             </thead>
 
             <tbody>
-                <?php if (empty($filteredBooks)): ?>
-                    <tr>
-                        <td colspan="9">No books found.</td>
-                    </tr>
-                <?php endif; ?>
-
                 <?php foreach ($filteredBooks as $book): ?>
                     <tr>
-
                         <td><?= $book['book_id']; ?></td>
-
-                        <td class="title">
-                            <?= htmlspecialchars($book['title']); ?>
-                        </td>
-
+                        <td><?= htmlspecialchars($book['title']); ?></td>
+                        <td><?= htmlspecialchars($categoryMap[$book['category_id']] ?? 'Unknown'); ?></td>
+                        <td><?= htmlspecialchars($authorMap[$book['author_id']] ?? 'Unknown'); ?></td>
+                        <td class="price">€<?= number_format($book['price'], 2); ?></td>
+                        <td><?= $book['stock_quantity']; ?></td>
                         <td>
-                            <?= htmlspecialchars($categoryMap[$book['category_id']] ?? 'Unknown'); ?>
+                            <img src="../../assets/images/coverimages/<?= htmlspecialchars($book['cover_image_url']); ?>" class="cover-image">
                         </td>
-
                         <td>
-                            <?= htmlspecialchars($authorMap[$book['author_id']] ?? 'Unknown'); ?>
+                            <a href="../../logic/books/deleteBook.php?id=<?= $book['book_id'] ?>"
+                               onclick="return confirm('Delete this book?')"
+                               class="delete-link">Delete</a>
                         </td>
-
-                        <td class="price">
-                            €<?= number_format($book['price'], 2); ?>
-                        </td>
-
                         <td>
-                            <?= $book['stock_quantity']; ?>
+                            <a href="editBook.php?id=<?= $book['book_id'] ?>" class="edit-link">Edit</a>
                         </td>
-
-                        <td class="cover-image-td">
-                            <img 
-                                src="../../assets/images/coverimages/<?= htmlspecialchars($book['cover_image_url']); ?>" 
-                                class="cover-image"
-                            >
-                        </td>
-
-                        <!-- NO FUNCTIONALITY YET -->
-                        <td>
-                            <a href="#" class="delete-link">Delete</a>
-                        </td>
-
-                        <td>
-                            <a href="#" class="edit-link">Edit</a>
-                        </td>
-
                     </tr>
                 <?php endforeach; ?>
             </tbody>

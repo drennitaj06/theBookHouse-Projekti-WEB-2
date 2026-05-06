@@ -1,359 +1,399 @@
 <?php
 
-$books = [
-
-    [
-        'book_id' => 1,
-        'title' => "Harry Potter and the Sorcerer's Stone",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 139,
-        'description' => 'A young boy discovers he is a wizard and begins his journey at Hogwarts.',
-        'cover_image_url' => 'harry_potter_1.jpg'
-    ],
-
-    [
-        'book_id' => 2,
-        'title' => "Harry Potter and the Chamber of Secrets",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 19,
-        'description' => 'Harry returns to Hogwarts where a mysterious danger threatens the school.',
-        'cover_image_url' => 'harry_potter_2.jpg'
-    ],
-
-    [
-        'book_id' => 3,
-        'title' => "Harry Potter and the Prisoner of Azkaban",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 18,
-        'description' => 'A dangerous prisoner escapes, revealing secrets about Harry’s past.',
-        'cover_image_url' => 'harry_potter_3.jpg'
-    ],
-
-    [
-        'book_id' => 4,
-        'title' => "Harry Potter and the Goblet of Fire",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 0,
-        'description' => 'Harry competes in a deadly magical tournament between wizard schools.',
-        'cover_image_url' => 'harry_potter_4.jpg'
-    ],
-
-    [
-        'book_id' => 5,
-        'title' => "Harry Potter and the Order of the Phoenix",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 0,
-        'description' => 'Harry forms a secret group to fight against rising dark forces.',
-        'cover_image_url' => 'harry_potter_5.jpg'
-    ],
-
-    [
-        'book_id' => 6,
-        'title' => "Harry Potter and the Half-Blood Prince",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 20,
-        'description' => 'Secrets about Voldemort’s past begin to unfold.',
-        'cover_image_url' => 'harry_potter_6.jpg'
-    ],
-
-    [
-        'book_id' => 7,
-        'title' => "Harry Potter and the Deathly Hallows",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 20,
-        'description' => 'Harry embarks on a final mission to defeat Voldemort.',
-        'cover_image_url' => 'harry_potter_7.jpg'
-    ],
-
-    [
-        'book_id' => 8,
-        'title' => "Harry Potter and the Cursed Child",
-        'category_id' => 4,
-        'author_id' => 1,
-        'price' => 11.00,
-        'stock_quantity' => 20,
-        'description' => 'A new generation faces time travel and dark magic challenges.',
-        'cover_image_url' => 'harry_potter_8.jpg'
-    ],
-
-    [
-        'book_id' => 9,
-        'title' => "Charlotte's Web",
-        'category_id' => 4,
-        'author_id' => 2,
-        'price' => 10.40,
-        'stock_quantity' => 20,
-        'description' => 'A touching story of friendship between a pig and a clever spider.',
-        'cover_image_url' => 'charlottes_web.jpg'
-    ],
-
-    [
-        'book_id' => 10,
-        'title' => "Hamlet",
-        'category_id' => 7,
-        'author_id' => 3,
-        'price' => 3.90,
-        'stock_quantity' => 1,
-        'description' => 'A prince seeks revenge for his father’s murder.',
-        'cover_image_url' => 'hamlet.jpg'
-    ],
-
-    [
-        'book_id' => 11,
-        'title' => "Death of a Salesman",
-        'category_id' => 7,
-        'author_id' => 4,
-        'price' => 11.65,
-        'stock_quantity' => 19,
-        'description' => 'A man struggles with failure and the illusion of success.',
-        'cover_image_url' => 'death_of_a_salesman.jpg'
-    ],
-
-    [
-        'book_id' => 12,
-        'title' => "The Republic",
-        'category_id' => 9,
-        'author_id' => 5,
-        'price' => 14.20,
-        'stock_quantity' => 17,
-        'description' => 'Plato explores justice and the structure of an ideal society.',
-        'cover_image_url' => 'the_republic.jpg'
-    ],
-
-    [
-        'book_id' => 13,
-        'title' => "Why We Sleep",
-        'category_id' => 9,
-        'author_id' => 6,
-        'price' => 14.00,
-        'stock_quantity' => 20,
-        'description' => 'A scientific look at the importance of sleep.',
-        'cover_image_url' => 'why_we_sleep.jpg'
-    ],
-
-    [
-        'book_id' => 14,
-        'title' => "Pride and Prejudice",
-        'category_id' => 1,
-        'author_id' => 7,
-        'price' => 3.90,
-        'stock_quantity' => 20,
-        'description' => 'A classic romance exploring love, class, and misunderstanding.',
-        'cover_image_url' => 'pride_and_prejudice.jpg'
-    ],
-
-    [
-        'book_id' => 15,
-        'title' => "The Underground Railroad",
-        'category_id' => 1,
-        'author_id' => 8,
-        'price' => 11.99,
-        'stock_quantity' => 0,
-        'description' => 'A powerful story of escape from slavery in America.',
-        'cover_image_url' => 'the_underground_railroad.jpg'
-    ],
-
-    [
-        'book_id' => 16,
-        'title' => "Persepolis I",
-        'category_id' => 5,
-        'author_id' => 9,
-        'price' => 7.20,
-        'stock_quantity' => 20,
-        'description' => 'A graphic memoir of growing up during the Iranian Revolution.',
-        'cover_image_url' => 'persepolis_1.jpg'
-    ],
-
-    [
-        'book_id' => 17,
-        'title' => "Persepolis II",
-        'category_id' => 5,
-        'author_id' => 9,
-        'price' => 7.00,
-        'stock_quantity' => 20,
-        'description' => 'The continuation of a powerful coming-of-age story.',
-        'cover_image_url' => 'persepolis_2.jpg'
-    ],
-
-    [
-        'book_id' => 18,
-        'title' => "Batman: The Dark Knight Returns",
-        'category_id' => 5,
-        'author_id' => 10,
-        'price' => 15.89,
-        'stock_quantity' => 20,
-        'description' => 'An aging Batman returns to fight crime in a dark Gotham.',
-        'cover_image_url' => 'batman_the_dark_knight_returns.jpg'
-    ],
-
-    [
-        'book_id' => 19,
-        'title' => "The Diary of a Young Girl",
-        'category_id' => 2,
-        'author_id' => 11,
-        'price' => 18.40,
-        'stock_quantity' => 20,
-        'description' => 'Anne Frank’s diary during World War II.',
-        'cover_image_url' => 'the_diary_of_anne_frank.jpg'
-    ],
-
-    [
-        'book_id' => 20,
-        'title' => "Born a Crime",
-        'category_id' => 2,
-        'author_id' => 12,
-        'price' => 14.00,
-        'stock_quantity' => 0,
-        'description' => 'Trevor Noah’s memoir about growing up in apartheid South Africa.',
-        'cover_image_url' => 'born_a_crime.jpg'
-    ],
-
-    [
-        'book_id' => 21,
-        'title' => "Iliad",
-        'category_id' => 6,
-        'author_id' => 13,
-        'price' => 12.90,
-        'stock_quantity' => 20,
-        'description' => 'An epic poem about the Trojan War.',
-        'cover_image_url' => 'iliad.jpg'
-    ],
-
-    [
-        'book_id' => 22,
-        'title' => "Odyssey",
-        'category_id' => 6,
-        'author_id' => 13,
-        'price' => 13.00,
-        'stock_quantity' => 20,
-        'description' => 'Odysseus’ long journey home after the Trojan War.',
-        'cover_image_url' => 'odyssey.jpg'
-    ],
-
-    [
-        'book_id' => 23,
-        'title' => "The Tao Te Ching",
-        'category_id' => 8,
-        'author_id' => 14,
-        'price' => 25.90,
-        'stock_quantity' => 18,
-        'description' => 'Ancient Chinese philosophy on harmony and balance.',
-        'cover_image_url' => 'tao_te_ching.jpg'
-    ],
-
-    [
-        'book_id' => 24,
-        'title' => "The Power of Now",
-        'category_id' => 8,
-        'author_id' => 15,
-        'price' => 16.90,
-        'stock_quantity' => 20,
-        'description' => 'A guide to spiritual enlightenment and mindfulness.',
-        'cover_image_url' => 'the_power_of_now.jpg'
-    ],
-
-    [
-        'book_id' => 25,
-        'title' => "Anne of Green Gables",
-        'category_id' => 3,
-        'author_id' => 16,
-        'price' => 3.90,
-        'stock_quantity' => 0,
-        'description' => 'A story of an imaginative orphan girl finding a home.',
-        'cover_image_url' => 'anne_of_green_gables.jpg'
-    ],
-
-    [
-        'book_id' => 26,
-        'title' => "Children of Blood and Bone",
-        'category_id' => 3,
-        'author_id' => 17,
-        'price' => 19.40,
-        'stock_quantity' => 21,
-        'description' => 'A fantasy tale of magic, oppression, and rebellion.',
-        'cover_image_url' => 'children_of_blood_and_bone.jpg'
-    ],
-
-    [
-        'book_id' => 27,
-        'title' => "The Waste Land",
-        'category_id' => 6,
-        'author_id' => 18,
-        'price' => 5.20,
-        'stock_quantity' => 20,
-        'description' => 'A modernist poem reflecting post-war disillusionment.',
-        'cover_image_url' => 'the_waste_land.jpg'
-    ],
-
-    [
-        'book_id' => 28,
-        'title' => "Madame Bovary",
-        'category_id' => 7,
-        'author_id' => 19,
-        'price' => 3.90,
-        'stock_quantity' => 20,
-        'description' => 'A tragic story of desire, dissatisfaction, and reality.',
-        'cover_image_url' => 'madame_bovary.jpg'
-    ],
-
-    [
-        'book_id' => 29,
-        'title' => "The Night Circus",
-        'category_id' => 7,
-        'author_id' => 20,
-        'price' => 13.99,
-        'stock_quantity' => 20,
-        'description' => 'A magical competition set in a mysterious traveling circus.',
-        'cover_image_url' => 'the_night_circus.jpg'
-    ],
-
-    [
-        'book_id' => 30,
-        'title' => "The Brothers Karamazov",
-        'category_id' => 1,
-        'author_id' => 21,
-        'price' => 5.20,
-        'stock_quantity' => 20,
-        'description' => 'A philosophical novel about faith, doubt, and family.',
-        'cover_image_url' => 'the_brothers_karamazov.jpg'
-    ],
-
-    [
-        'book_id' => 31,
-        'title' => "Kosovo: A Short History",
-        'category_id' => 9,
-        'author_id' => 22,
-        'price' => 27.00,
-        'stock_quantity' => 20,
-        'description' => 'A historical overview of Kosovo’s past and identity.',
-        'cover_image_url' => 'kosovo_a_short_story.jpg'
-    ],
-
-    [
-        'book_id' => 32,
-        'title' => "A Christmas Carol",
-        'category_id' => 1,
-        'author_id' => 23,
-        'price' => 5.20,
-        'stock_quantity' => 20,
-        'description' => 'A miser learns compassion through ghostly visits on Christmas Eve.',
-        'cover_image_url' => 'a_christmas_carol.jpg'
-    ],
-
-];
+$books = array (
+  0 => 
+  array (
+    'book_id' => 1,
+    'title' => 'Harry Potter and the Sorcerer\'s Stone',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 139,
+    'description' => 'A young boy discovers he is a wizard and begins his journey at Hogwarts.',
+    'cover_image_url' => 'harry_potter_1.jpg',
+  ),
+  1 => 
+  array (
+    'book_id' => 2,
+    'title' => 'Harry Potter and the Chamber of Secrets',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 19,
+    'description' => 'Harry returns to Hogwarts where a mysterious danger threatens the school.',
+    'cover_image_url' => 'harry_potter_2.jpg',
+  ),
+  2 => 
+  array (
+    'book_id' => 3,
+    'title' => 'Harry Potter and the Prisoner of Azkaban',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 18,
+    'description' => 'A dangerous prisoner escapes, revealing secrets about Harry’s past.',
+    'cover_image_url' => 'harry_potter_3.jpg',
+  ),
+  3 => 
+  array (
+    'book_id' => 4,
+    'title' => 'Harry Potter and the Goblet of Fire',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 0,
+    'description' => 'Harry competes in a deadly magical tournament between wizard schools.',
+    'cover_image_url' => 'harry_potter_4.jpg',
+  ),
+  4 => 
+  array (
+    'book_id' => 5,
+    'title' => 'Harry Potter and the Order of the Phoenix',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 0,
+    'description' => 'Harry forms a secret group to fight against rising dark forces.',
+    'cover_image_url' => 'harry_potter_5.jpg',
+  ),
+  5 => 
+  array (
+    'book_id' => 6,
+    'title' => 'Harry Potter and the Half-Blood Prince',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 20,
+    'description' => 'Secrets about Voldemort’s past begin to unfold.',
+    'cover_image_url' => 'harry_potter_6.jpg',
+  ),
+  6 => 
+  array (
+    'book_id' => 7,
+    'title' => 'Harry Potter and the Deathly Hallows',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 20,
+    'description' => 'Harry embarks on a final mission to defeat Voldemort.',
+    'cover_image_url' => 'harry_potter_7.jpg',
+  ),
+  7 => 
+  array (
+    'book_id' => 8,
+    'title' => 'Harry Potter and the Cursed Child',
+    'category_id' => 4,
+    'author_id' => 1,
+    'price' => 11.0,
+    'stock_quantity' => 20,
+    'description' => 'A new generation faces time travel and dark magic challenges.',
+    'cover_image_url' => 'harry_potter_8.jpg',
+  ),
+  8 => 
+  array (
+    'book_id' => 9,
+    'title' => 'Charlotte\'s Web',
+    'category_id' => 4,
+    'author_id' => 2,
+    'price' => 10.4,
+    'stock_quantity' => 20,
+    'description' => 'A touching story of friendship between a pig and a clever spider.',
+    'cover_image_url' => 'charlottes_web.jpg',
+  ),
+  9 => 
+  array (
+    'book_id' => 10,
+    'title' => 'Hamlet',
+    'category_id' => 7,
+    'author_id' => 3,
+    'price' => 3.9,
+    'stock_quantity' => 1,
+    'description' => 'A prince seeks revenge for his father’s murder.',
+    'cover_image_url' => 'hamlet.jpg',
+  ),
+  10 => 
+  array (
+    'book_id' => 11,
+    'title' => 'Death of a Salesman',
+    'category_id' => 7,
+    'author_id' => 4,
+    'price' => 11.65,
+    'stock_quantity' => 19,
+    'description' => 'A man struggles with failure and the illusion of success.',
+    'cover_image_url' => 'death_of_a_salesman.jpg',
+  ),
+  11 => 
+  array (
+    'book_id' => 12,
+    'title' => 'The Republic',
+    'category_id' => 9,
+    'author_id' => 5,
+    'price' => 14.2,
+    'stock_quantity' => 17,
+    'description' => 'Plato explores justice and the structure of an ideal society.',
+    'cover_image_url' => 'the_republic.jpg',
+  ),
+  12 => 
+  array (
+    'book_id' => 13,
+    'title' => 'Why We Sleep',
+    'category_id' => 9,
+    'author_id' => 6,
+    'price' => 14.0,
+    'stock_quantity' => 20,
+    'description' => 'A scientific look at the importance of sleep.',
+    'cover_image_url' => 'why_we_sleep.jpg',
+  ),
+  13 => 
+  array (
+    'book_id' => 14,
+    'title' => 'Pride and Prejudice',
+    'category_id' => 1,
+    'author_id' => 7,
+    'price' => 3.9,
+    'stock_quantity' => 20,
+    'description' => 'A classic romance exploring love, class, and misunderstanding.',
+    'cover_image_url' => 'pride_and_prejudice.jpg',
+  ),
+  14 => 
+  array (
+    'book_id' => 15,
+    'title' => 'The Underground Railroad',
+    'category_id' => 1,
+    'author_id' => 8,
+    'price' => 11.99,
+    'stock_quantity' => 0,
+    'description' => 'A powerful story of escape from slavery in America.',
+    'cover_image_url' => 'the_underground_railroad.jpg',
+  ),
+  15 => 
+  array (
+    'book_id' => 16,
+    'title' => 'Persepolis I',
+    'category_id' => 5,
+    'author_id' => 9,
+    'price' => 7.2,
+    'stock_quantity' => 20,
+    'description' => 'A graphic memoir of growing up during the Iranian Revolution.',
+    'cover_image_url' => 'persepolis_1.jpg',
+  ),
+  16 => 
+  array (
+    'book_id' => 17,
+    'title' => 'Persepolis II',
+    'category_id' => 5,
+    'author_id' => 9,
+    'price' => 7.0,
+    'stock_quantity' => 20,
+    'description' => 'The continuation of a powerful coming-of-age story.',
+    'cover_image_url' => 'persepolis_2.jpg',
+  ),
+  17 => 
+  array (
+    'book_id' => 18,
+    'title' => 'Batman: The Dark Knight Returns',
+    'category_id' => 5,
+    'author_id' => 10,
+    'price' => 15.89,
+    'stock_quantity' => 20,
+    'description' => 'An aging Batman returns to fight crime in a dark Gotham.',
+    'cover_image_url' => 'batman_the_dark_knight_returns.jpg',
+  ),
+  18 => 
+  array (
+    'book_id' => 19,
+    'title' => 'The Diary of a Young Girl',
+    'category_id' => 2,
+    'author_id' => 11,
+    'price' => 18.4,
+    'stock_quantity' => 20,
+    'description' => 'Anne Frank’s diary during World War II.',
+    'cover_image_url' => 'the_diary_of_anne_frank.jpg',
+  ),
+  19 => 
+  array (
+    'book_id' => 20,
+    'title' => 'Born a Crime',
+    'category_id' => 2,
+    'author_id' => 12,
+    'price' => 14.0,
+    'stock_quantity' => 0,
+    'description' => 'Trevor Noah’s memoir about growing up in apartheid South Africa.',
+    'cover_image_url' => 'born_a_crime.jpg',
+  ),
+  20 => 
+  array (
+    'book_id' => 21,
+    'title' => 'Iliad',
+    'category_id' => 6,
+    'author_id' => 13,
+    'price' => 12.9,
+    'stock_quantity' => 20,
+    'description' => 'An epic poem about the Trojan War.',
+    'cover_image_url' => 'iliad.jpg',
+  ),
+  21 => 
+  array (
+    'book_id' => 22,
+    'title' => 'Odyssey',
+    'category_id' => 6,
+    'author_id' => 13,
+    'price' => 13.0,
+    'stock_quantity' => 20,
+    'description' => 'Odysseus’ long journey home after the Trojan War.',
+    'cover_image_url' => 'odyssey.jpg',
+  ),
+  22 => 
+  array (
+    'book_id' => 23,
+    'title' => 'The Tao Te Ching',
+    'category_id' => 8,
+    'author_id' => 14,
+    'price' => 25.9,
+    'stock_quantity' => 18,
+    'description' => 'Ancient Chinese philosophy on harmony and balance.',
+    'cover_image_url' => 'tao_te_ching.jpg',
+  ),
+  23 => 
+  array (
+    'book_id' => 24,
+    'title' => 'The Power of Now',
+    'category_id' => 8,
+    'author_id' => 15,
+    'price' => 16.9,
+    'stock_quantity' => 20,
+    'description' => 'A guide to spiritual enlightenment and mindfulness.',
+    'cover_image_url' => 'the_power_of_now.jpg',
+  ),
+  24 => 
+  array (
+    'book_id' => 25,
+    'title' => 'Anne of Green Gables',
+    'category_id' => 3,
+    'author_id' => 16,
+    'price' => 3.9,
+    'stock_quantity' => 0,
+    'description' => 'A story of an imaginative orphan girl finding a home.',
+    'cover_image_url' => 'anne_of_green_gables.jpg',
+  ),
+  25 => 
+  array (
+    'book_id' => 26,
+    'title' => 'Children of Blood and Bone',
+    'category_id' => 3,
+    'author_id' => 17,
+    'price' => 19.4,
+    'stock_quantity' => 21,
+    'description' => 'A fantasy tale of magic, oppression, and rebellion.',
+    'cover_image_url' => 'children_of_blood_and_bone.jpg',
+  ),
+  26 => 
+  array (
+    'book_id' => 27,
+    'title' => 'The Waste Land',
+    'category_id' => 6,
+    'author_id' => 18,
+    'price' => 5.2,
+    'stock_quantity' => 20,
+    'description' => 'A modernist poem reflecting post-war disillusionment.',
+    'cover_image_url' => 'the_waste_land.jpg',
+  ),
+  27 => 
+  array (
+    'book_id' => 28,
+    'title' => 'Madame Bovary',
+    'category_id' => 7,
+    'author_id' => 19,
+    'price' => 3.9,
+    'stock_quantity' => 20,
+    'description' => 'A tragic story of desire, dissatisfaction, and reality.',
+    'cover_image_url' => 'madame_bovary.jpg',
+  ),
+  28 => 
+  array (
+    'book_id' => 29,
+    'title' => 'The Night Circus',
+    'category_id' => 7,
+    'author_id' => 20,
+    'price' => 13.99,
+    'stock_quantity' => 20,
+    'description' => 'A magical competition set in a mysterious traveling circus.',
+    'cover_image_url' => 'the_night_circus.jpg',
+  ),
+  29 => 
+  array (
+    'book_id' => 30,
+    'title' => 'The Brothers Karamazov',
+    'category_id' => 1,
+    'author_id' => 21,
+    'price' => 5.2,
+    'stock_quantity' => 20,
+    'description' => 'A philosophical novel about faith, doubt, and family.',
+    'cover_image_url' => 'the_brothers_karamazov.jpg',
+  ),
+  30 => 
+  array (
+    'book_id' => 31,
+    'title' => 'Kosovo: A Short History',
+    'category_id' => 9,
+    'author_id' => 22,
+    'price' => 27.0,
+    'stock_quantity' => 20,
+    'description' => 'A historical overview of Kosovo’s past and identity.',
+    'cover_image_url' => 'kosovo_a_short_story.jpg',
+  ),
+  31 => 
+  array (
+    'book_id' => 32,
+    'title' => 'A Christmas Carol',
+    'category_id' => 1,
+    'author_id' => 23,
+    'price' => 5.2,
+    'stock_quantity' => 20,
+    'description' => 'A miser learns compassion through ghostly visits on Christmas Eve.',
+    'cover_image_url' => 'a_christmas_carol.jpg',
+  ),
+  32 => 
+  array (
+    'book_id' => 33,
+    'title' => '1984',
+    'author_id' => '24',
+    'category_id' => '1',
+    'price' => 9.99,
+    'stock_quantity' => 100,
+    'cover_image_url' => '1984.jpg',
+    'description' => 'A dystopian novel about surveillance and control.',
+  ),
+  array (
+    'book_id' => 33,
+    'title' => 'Norwegian Wood',
+    'category_id' => 7,
+    'author_id' => 25,
+    'price' => 12.50,
+    'stock_quantity' => 25,
+    'description' => 'A nostalgic story of love, loss, and memory.',
+    'cover_image_url' => 'norwegian_wood.jpg',
+  ),
+  array (
+    'book_id' => 34,
+    'title' => 'Foundation',
+    'category_id' => 8,
+    'author_id' => 26,
+    'price' => 14.99,
+    'stock_quantity' => 30,
+    'description' => 'A science fiction epic about the fall and rise of civilizations.',
+    'cover_image_url' => 'foundation.jpg',
+  ),
+  array (
+    'book_id' => 35,
+    'title' => 'The Stranger',
+    'category_id' => 1,
+    'author_id' => 27,
+    'price' => 9.99,
+    'stock_quantity' => 18,
+    'description' => 'A man confronts the absurdity of life and existence.',
+    'cover_image_url' => 'the_stranger.jpg',
+  ),
+);
 
 ?>

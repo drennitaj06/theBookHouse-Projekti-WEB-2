@@ -270,3 +270,128 @@
 footer {
     display: none;
 }
+
+
+
+
+
+
+/* ===== FORMS WRAPPER ===== */
+.forms-wrapper {
+    display: flex;
+    gap: 25px;
+    width: 90%;
+    justify-content: center;
+    margin: 40px auto 80px;
+    flex-wrap: wrap;
+}
+
+/* ===== FORM CARD ===== */
+.form-card {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* ===== INPUT ===== */
+.input-div {
+    position: relative;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-div .input {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 16px;
+    border: 1.5px solid #e2e8f0;
+    outline: none;
+    transition: 0.2s;
+}
+
+/* Focus */
+.input-div .input:focus {
+    border-color: #dc8814;
+    box-shadow: 0 0 0 3px rgba(220, 136, 20, 0.1);
+}
+
+/* Label */
+.input-div label {
+    position: absolute;
+    top: 50%;
+    left: 1rem;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 0 5px;
+    transition: 0.2s;
+    color: #64748b;
+}
+
+/* Float label */
+.input-div .input:focus + label,
+.input-div .input:not(:placeholder-shown) + label {
+    top: 0;
+    font-size: 0.75rem;
+    color: #dc8814;
+}
+
+/* Fix SELECT + TEXTAREA labels */
+.input-div select.input + label,
+.input-div textarea.input + label {
+    top: 0;
+    font-size: 0.75rem;
+    color: #dc8814;
+}
+
+/* Select */
+select.input {
+    appearance: none;
+}
+
+/* Textarea */
+textarea.input {
+    min-height: 100px;
+    resize: vertical;
+    padding-top: 1.2rem;
+}
+
+/* BUTTON */
+.submit {
+    width: 90%;
+    padding: 1rem;
+    background: black;
+    color: white;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit:hover {
+    background: #dc8814;
+}
+
+/* CENTER SINGLE FORM */
+.forms-wrapper.single-form {
+    justify-content: center;
+}
+
+.forms-wrapper.single-form .form-card {
+    max-width: 1000px;
+}
