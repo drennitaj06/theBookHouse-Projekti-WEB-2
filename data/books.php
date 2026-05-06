@@ -365,7 +365,7 @@ $books = array (
     'description' => 'A dystopian novel about surveillance and control.',
   ),
   array (
-    'book_id' => 33,
+    'book_id' => 34,
     'title' => 'Norwegian Wood',
     'category_id' => 7,
     'author_id' => 25,
@@ -375,7 +375,7 @@ $books = array (
     'cover_image_url' => 'norwegian_wood.jpg',
   ),
   array (
-    'book_id' => 34,
+    'book_id' => 35,
     'title' => 'Foundation',
     'category_id' => 8,
     'author_id' => 26,
@@ -385,7 +385,7 @@ $books = array (
     'cover_image_url' => 'foundation.jpg',
   ),
   array (
-    'book_id' => 35,
+    'book_id' => 36,
     'title' => 'The Stranger',
     'category_id' => 1,
     'author_id' => 27,

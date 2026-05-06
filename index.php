@@ -160,7 +160,7 @@
 <section id="section5">
     <div class="stats">
         <div class="stat-item">
-            <h1 data-target="32">0</h1>
+            <h1 data-target="36">0</h1>
             <p>Books in Stock</p>
         </div>
         <div class="stat-item">

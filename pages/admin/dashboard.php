@@ -6,7 +6,7 @@ requireAdmin();
 
 /* ===== DATA ===== */
 /** @var array $users */
-require_once "../../data/users.php"; // assuming this exists
+require_once "../../data/users.php";
 require_once "../../utils/functions.php";
 
 /* ===== INPUT ===== */
@@ -25,8 +25,6 @@ if (!empty($search)) {
 /* normalize */
 $filteredUsers = array_values($filteredUsers);
 ?>
-
-<link rel="stylesheet" href="../../assets/css/admin.css">
 
 <div class="page-wrapper">
 
@@ -59,7 +57,6 @@ $filteredUsers = array_values($filteredUsers);
                     <th>Role</th>
                     <th>Created At</th>
                     <th>Delete</th>
-                    <th>Edit</th>
                 </tr>
             </thead>
 
@@ -67,7 +64,7 @@ $filteredUsers = array_values($filteredUsers);
 
                 <?php if (empty($filteredUsers)): ?>
                     <tr>
-                        <td colspan="7">No users found.</td>
+                        <td colspan="6">No users found.</td>
                     </tr>
                 <?php endif; ?>
 
@@ -76,29 +73,24 @@ $filteredUsers = array_values($filteredUsers);
 
                         <td><?= $user['id']; ?></td>
 
-                        <td>
-                            <?= htmlspecialchars($user['username']); ?>
-                        </td>
+                        <td><?= htmlspecialchars($user['username']); ?></td>
+
+                        <td><?= htmlspecialchars($user['email']); ?></td>
+
+                        <td><?= htmlspecialchars($user['role']); ?></td>
+
+                        <td><?= htmlspecialchars($user['created_at'] ?? 'N/A'); ?></td>
 
                         <td>
-                            <?= htmlspecialchars($user['email']); ?>
-                        </td>
-
-                        <td>
-                            <?= htmlspecialchars($user['role']); ?>
-                        </td>
-
-                        <td>
-                            <?= htmlspecialchars($user['created_at'] ?? 'N/A'); ?>
-                        </td>
-
-                        <!-- NOT FUNCTIONAL YET -->
-                        <td>
-                            <a href="#" class="delete-link">Delete</a>
-                        </td>
-
-                        <td>
-                            <a href="#" class="edit-link">Edit</a>
+                            <?php if (($user['role'] ?? '') !== 'admin'): ?>
+                                <a href="../../logic/users/deleteUser.php?id=<?= $user['id'] ?>"
+                                   onclick="return confirm('Delete this user?')"
+                                   class="delete-link">
+                                    Delete
+                                </a>
+                            <?php else: ?>
+                                <span style="opacity: 0.5;">Protected</span>
+                            <?php endif; ?>
                         </td>
 
                     </tr>
