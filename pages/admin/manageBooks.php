@@ -4,6 +4,9 @@ require_once "../../includes/header.php";
 
 requireAdmin();
 
+/** @var array $books */
+/** @var array $authors */
+/** @var array $categories */
 require_once "../../data/books.php";
 require_once "../../data/authors.php";
 require_once "../../data/categories.php";

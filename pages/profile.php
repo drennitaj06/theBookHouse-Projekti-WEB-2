@@ -4,6 +4,7 @@
 <?php requireUser(); ?>
 
 <?php
+/** @var array $users */
 require_once "../data/users.php";
 
 $sessionUser = $_SESSION['user'] ?? null;

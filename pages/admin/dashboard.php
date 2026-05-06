@@ -5,6 +5,7 @@ require_once "../../includes/header.php";
 requireAdmin();
 
 /* ===== DATA ===== */
+/** @var array $users */
 require_once "../../data/users.php"; // assuming this exists
 require_once "../../utils/functions.php";
 
