@@ -98,11 +98,27 @@ unset($_SESSION['success'], $_SESSION['error']);
                     <a href="<?= BASE_URL ?>pages/admin/dashboard.php">DASHBOARD</a>
                 </li>
 
+                <li class="<?= isActive('managePurchases.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/admin/managePurchases.php">PURCHASES</a>
+                </li>
+
             <?php else: ?>
 
                 <!-- USER NAV -->
                 <li class="<?= isActive('profile.php') ? 'active' : '' ?>">
                     <a href="<?= BASE_URL ?>pages/profile.php">PROFILE</a>
+                </li>
+
+                <li class="<?= isActive('cart.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/cart.php">CART</a>
+                </li>
+
+                <li class="<?= isActive('wishlist.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/wishlist.php">WISHLIST</a>
+                </li>
+
+                <li class="<?= isActive('purchases.php') ? 'active' : '' ?>">
+                    <a href="<?= BASE_URL ?>pages/purchases.php">PURCHASES</a>
                 </li>
 
             <?php endif; ?>

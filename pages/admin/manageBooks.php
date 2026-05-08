@@ -165,6 +165,13 @@ $filteredBooks = normalizeArray($filteredBooks);
             </thead>
 
             <tbody>
+
+                <?php if (empty($filteredBooks)): ?>
+                    <tr>
+                        <td colspan="9">No books found.</td>
+                    </tr>
+                <?php endif; ?>
+
                 <?php foreach ($filteredBooks as $book): ?>
                     <tr>
                         <td><?= $book['book_id']; ?></td>

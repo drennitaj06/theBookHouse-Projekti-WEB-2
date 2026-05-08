@@ -43,10 +43,26 @@ $isAdmin = $user && $user['role'] === 'admin';
                                 <a href="<?= BASE_URL ?>pages/admin/dashboard.php">Dashboard</a>
                             </li>
 
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/admin/managePurchases.php">Manage Purchases</a>
+                            </li>
+
                         <?php else: ?>
 
                             <li>
                                 <a href="<?= BASE_URL ?>pages/profile.php">Profile</a>
+                            </li>
+
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/cart.php">Cart</a>
+                            </li>
+
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/wishlist.php">Wishlist</a>
+                            </li>
+                            
+                            <li>
+                                <a href="<?= BASE_URL ?>pages/purchases.php">Purchases</a>
                             </li>
 
                         <?php endif; ?>

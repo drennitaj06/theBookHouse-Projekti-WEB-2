@@ -33,6 +33,13 @@ function requireUser() {
     }
 }
 
+function requireNonAdminAccess() {
+    if (isset($_SESSION['user']) && $_SESSION['user']['role'] === 'admin') {
+        header("Location: " . BASE_URL . "pages/admin/dashboard.php");
+        exit();
+    }
+}
+
 function enforceSessionTimeout($timeout = 1800) {
     if (!isset($_SESSION['user'])) {
         return;
