@@ -5,6 +5,8 @@ include 'includes/header.php';
 require_once 'data/books.php';
 require_once 'data/users.php';
 
+require_once 'config/constants.php';
+
 $latestBooks = array_slice(array_reverse($books), 0, 3);
 
 $userCount = 0;
@@ -161,7 +163,12 @@ foreach ($users as $u) {
             <?php foreach ($latestBooks as $index => $book): ?>
 
                 <div class="book <?= $index == 0 ? 'rotated-book-left' : ($index == 2 ? 'rotated-book-right' : 'main-book') ?>">
-                    <img src="<?= BASE_URL . 'assets/images/coverimages/' . $book['cover_image_url'] ?>" alt="<?= htmlspecialchars($book['title']) ?>">
+                    <img 
+                        src="<?= BASE_URL . 'assets/images/coverimages/' . $book['cover_image_url'] ?>" 
+                        alt="<?= htmlspecialchars($book['title']) ?>"
+                        class="clickable-book"
+                        data-id="<?= $book['book_id'] ?>"
+                    >
                 </div>
 
             <?php endforeach; ?>
@@ -207,5 +214,14 @@ foreach ($users as $u) {
         <a href="https://www.tiktok.com/"><i class="fab fa-tiktok"></i></a>
     </div>
 </section>
+
+<script>
+    document.querySelectorAll('.clickable-book').forEach(book => {
+        book.addEventListener('click', function () {
+            const bookId = this.dataset.id;
+            window.location.href = "<?= BASE_URL ?>pages/bookDetails.php?book_id=" + bookId;
+        });
+    });
+</script>
 
 <?php include 'includes/footer.php'; ?>

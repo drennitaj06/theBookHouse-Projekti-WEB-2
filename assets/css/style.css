@@ -654,6 +654,10 @@ header ul li.active a::after{
     transition: transform 0.3s ease-in-out, z-index 0.1s 0.1s ease-in-out; /* Delay z-index change slightly */
 }
 
+.clickable-book {
+    cursor: pointer;
+}
+
 
 
 /* Styling for section 5 */
