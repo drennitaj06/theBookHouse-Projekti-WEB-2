@@ -924,6 +924,239 @@ body {
 
 
 
+.cart-options{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.cart-options a{
+    display: inline-block;
+    margin: 20px 0;
+    padding: 10px 15px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    min-width: 140px;
+    text-align: center;
+}
+
+.clear-cart {
+    background: red;
+}
+
+.checkout-btn {
+    background: #2ecc71;
+}
+
+
+
+
+
+/* ===== CHECKOUT LAYOUT ===== */
+.purchase-container {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    justify-content: center;   /* horizontal center */
+    align-items: stretch;      /* forces both divs to same height */
+    gap: 50px;
+    margin: 20px auto 60px;         /* centers container on page */
+}
+
+/* ===== BOTH PANELS ===== */
+.purchase-summary,
+.purchase-form {
+    width: 50%;                /* equal width */
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 30px;             /* uniform padding */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== FORM SPECIFIC FIXES ===== */
+.purchase-form form {
+    width: 94%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.purchase-form .form-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads content to fill the height */
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+    .purchase-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .purchase-summary,
+    .purchase-form {
+        width: 100%;
+    }
+}
+
+/* SUMMARY ITEMS */
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+}
+
+.summary-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.summary-left img {
+    width: 45px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.summary-right {
+    font-weight: bold;
+}
+
+/* BILL ROWS */
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #555;
+}
+
+.summary-total {
+    margin-top: auto;
+    padding-top: 15px;
+
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.purchases-container {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: 40px auto;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* ===== EACH PURCHASE CARD ===== */
+.purchase-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    padding: 20px;
+}
+
+/* LEFT SIDE */
+.purchase-info {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.purchase-total {
+    margin-top: auto;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* RIGHT SIDE */
+.purchase-books {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* EACH BOOK */
+.purchase-book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.purchase-book-item img {
+    width: 40px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.book-meta {
+    flex: 1;
+    margin-left: 10px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.book-price {
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .purchase-card {
+        flex-direction: column;
+    }
+
+    .purchase-info,
+    .purchase-books {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+
+
+
 
 
 

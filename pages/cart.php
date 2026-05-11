@@ -32,25 +32,25 @@ $userCart = array_filter($cart_items, function ($item) use ($user_id) {
 
 <style>
 footer { display: none; }
-
-.clear-cart {
-    display: inline-block;
-    margin: 20px 0;
-    padding: 10px 15px;
-    background: red;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-}
 </style>
 
 <div class="page-wrapper">
 
     <h1 class="page-title">Your Cart</h1>
 
-    <a href="../logic/cart/clearCart.php" class="clear-cart">
-        Clear Cart
-    </a>
+    <div class="cart-options">
+        <a href="javascript:void(0)"
+            class="clear-cart"
+            onclick="openClearCartModal('../logic/cart/clearCart.php')">
+            Clear Cart
+        </a>
+
+        <?php if (!empty($userCart)): ?>
+            <a href="purchase.php?type=cart" class="checkout-btn">
+                Proceed to Checkout
+            </a>
+        <?php endif; ?>
+    </div>
 
     <div class="books_container">
 
@@ -85,7 +85,10 @@ footer { display: none; }
                 <div class="cart-wishlist">
 
                     <a href="javascript:void(0)"
-                       onclick="openRemoveModal('../logic/cart/removeFromCart.php?cart_item_id=<?= $item['cart_item_id'] ?>')"
+                       onclick="openRemoveModal(
+                                    '../logic/cart/removeFromCart.php?cart_item_id=<?= $item['cart_item_id'] ?>',
+                                    <?= $item['quantity'] ?>
+                                )"
                        class="add">
                         Remove
                     </a>
@@ -113,13 +116,44 @@ footer { display: none; }
     </div>
 </div>
 
+<!-- CLEAR CART MODAL -->
+<div id="clearCartModal" class="qty-modal">
+    <div class="qty-box">
+        <h3>Clear Cart</h3>
+
+        <p>Are you sure you want to remove all items from your cart?</p>
+        <p style="color:red;">
+            This action cannot be undone.
+        </p>
+
+        <div class="qty-actions">
+            <a href="#" id="confirmClearCart" class="qty-confirm">Yes, Clear</a>
+            <button type="button" class="qty-cancel" onclick="closeClearCartModal()">Cancel</button>
+        </div>
+    </div>
+</div>
+
 <script>
 let removeUrl = "";
+let removeMax = 1;
 
-function openRemoveModal(url) {
+function openRemoveModal(url, maxQty) {
     removeUrl = url;
+    removeMax = maxQty;
+
+    const input = document.getElementById('removeQty');
+    input.max = maxQty;
+    input.value = 1;
+
     document.getElementById('removeModal').style.display = 'flex';
 }
+
+document.getElementById('removeQty').addEventListener('input', function () {
+    let val = parseInt(this.value);
+
+    if (val > removeMax) this.value = removeMax;
+    if (val < 1) this.value = 1;
+});
 
 document.getElementById('confirmRemove').addEventListener('click', function(e) {
     e.preventDefault();
@@ -130,6 +164,34 @@ document.getElementById('confirmRemove').addEventListener('click', function(e) {
 
 function closeRemoveModal() {
     document.getElementById('removeModal').style.display = 'none';
+}
+</script>
+
+
+<script>
+let clearCartUrl = "";
+
+/**
+ * OPEN CLEAR CART MODAL
+ */
+function openClearCartModal(url) {
+    clearCartUrl = url;
+    document.getElementById('clearCartModal').style.display = 'flex';
+}
+
+/**
+ * CONFIRM CLEAR CART
+ */
+document.getElementById('confirmClearCart').addEventListener('click', function (e) {
+    e.preventDefault();
+    window.location.href = clearCartUrl;
+});
+
+/**
+ * CLOSE CLEAR CART MODAL
+ */
+function closeClearCartModal() {
+    document.getElementById('clearCartModal').style.display = 'none';
 }
 </script>
 

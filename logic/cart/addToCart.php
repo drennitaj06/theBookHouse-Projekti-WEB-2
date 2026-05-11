@@ -1,4 +1,5 @@
 <?php
+
 require_once dirname(__DIR__) . "/../auth/sessionCheck.php";
 requireUser();
 
@@ -13,13 +14,16 @@ if (!isset($_GET['book_id']) || !is_numeric($_GET['book_id'])) {
 
 $book_id = (int) $_GET['book_id'];
 $user_id = $_SESSION['user']['id'];
-$quantity = isset($_GET['qty']) ? max(1, (int) $_GET['qty']) : 1;
+$quantity = isset($_GET['qty']) ? (int) $_GET['qty'] : 1;
+
+if ($quantity < 1) $quantity = 1;
 
 $found = false;
 
-/* ===== UPDATE IF EXISTS ===== */
+/* ===== MERGE IF EXISTS ===== */
 foreach ($cart_items as &$item) {
     if ($item['user_id'] == $user_id && $item['book_id'] == $book_id) {
+
         $item['quantity'] += $quantity;
         $found = true;
 
@@ -31,6 +35,7 @@ unset($item);
 
 /* ===== ADD NEW ITEM ===== */
 if (!$found) {
+
     $newId = !empty($cart_items)
         ? max(array_column($cart_items, 'cart_item_id')) + 1
         : 1;
@@ -48,9 +53,11 @@ if (!$found) {
 
 /* ===== SAVE ===== */
 $filePath = dirname(__DIR__) . "/../data/cart.php";
+
 file_put_contents(
     $filePath,
-    "<?php\n\n\$cart_items = " . var_export($cart_items, true) . ";\n\n?>"
+    "<?php\n\n\$cart_items = " . var_export($cart_items, true) . ";\n\n?>",
+    LOCK_EX
 );
 
 header("Location: " . BASE_URL . "pages/cart.php");

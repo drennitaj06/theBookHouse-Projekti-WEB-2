@@ -1498,3 +1498,62 @@ header ul li.active a::after{
         width: 60px;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/* ===== PURCHASE ITEMS INSIDE TABLE ===== */
+.purchase-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* mini item card */
+.mini-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* cover */
+.mini-cover {
+    width: 35px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* STATUS COLORS */
+.status-completed {
+    color: #2e7d32;
+    font-weight: bold;
+}
+
+.status-processed {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.status-declined {
+    color: #6c757d;
+    font-weight: bold;
+}
+
+.status-refunded {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-failed {
+    color: #dc3545;
+    font-weight: bold;
+}

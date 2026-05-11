@@ -46,3 +46,15 @@ document.getElementById('confirmBtn').addEventListener('click', function (e) {
 function closeQty() {
     document.getElementById('qtyModal').style.display = 'none';
 }
+
+
+
+
+
+document.getElementById('qtyInput').addEventListener('input', function () {
+    let max = parseInt(this.max);
+    let val = parseInt(this.value);
+
+    if (val > max) this.value = max;
+    if (val < 1) this.value = 1;
+});

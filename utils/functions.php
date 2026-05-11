@@ -43,3 +43,28 @@ function sortBooksByPrice($books, $asc = true) {
 function normalizeArray($array) {
     return array_values($array);
 }
+
+
+
+
+/**
+ * Filter purchases by status
+ */
+function filterPurchasesByStatus($purchases, $status) {
+    if ($status === '' || $status === 'all') return $purchases;
+
+    return array_filter($purchases, function ($p) use ($status) {
+        return $p['status'] === $status;
+    });
+}
+
+/**
+ * Filter purchases by delivery method
+ */
+function filterPurchasesByDelivery($purchases, $delivery) {
+    if ($delivery === '' || $delivery === 'all') return $purchases;
+
+    return array_filter($purchases, function ($p) use ($delivery) {
+        return $p['delivery_method'] === $delivery;
+    });
+}

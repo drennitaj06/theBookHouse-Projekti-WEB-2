@@ -1,4 +1,21 @@
-<?php include 'includes/header.php'; ?>
+<?php 
+
+include 'includes/header.php';
+
+require_once 'data/books.php';
+require_once 'data/users.php';
+
+$latestBooks = array_slice(array_reverse($books), 0, 3);
+
+$userCount = 0;
+
+foreach ($users as $u) {
+    if ($u['role'] === 'user') {
+        $userCount++;
+    }
+}
+
+?>
 
 <section id="section1">
     <section class="books-contain activeSection" id="books1">
@@ -141,17 +158,13 @@
 
         <div class="books-wrapper">
 
-            <div class="book rotated-book-left" data-book-id="1">
-                <img src="<?= BASE_URL ?>assets/images/coverimages/kosovo_a_short_story.jpg" alt="Book 1">
-            </div>
+            <?php foreach ($latestBooks as $index => $book): ?>
 
-            <div class="book main-book" data-book-id="2">
-                <img src="<?= BASE_URL ?>assets/images/coverimages/tao_te_ching.jpg" alt="Book 2">
-            </div>
+                <div class="book <?= $index == 0 ? 'rotated-book-left' : ($index == 2 ? 'rotated-book-right' : 'main-book') ?>">
+                    <img src="<?= BASE_URL . $book['cover_image_url'] ?>" alt="<?= htmlspecialchars($book['title']) ?>">
+                </div>
 
-            <div class="book rotated-book-right" data-book-id="3">
-                <img src="<?= BASE_URL ?>assets/images/coverimages/the_brothers_karamazov.jpg" alt="Book 3">
-            </div>
+            <?php endforeach; ?>
 
         </div>
     </div>
@@ -160,7 +173,7 @@
 <section id="section5">
     <div class="stats">
         <div class="stat-item">
-            <h1 data-target="36">0</h1>
+            <h1 data-target="<?= count($books) ?>">0</h1>
             <p>Books in Stock</p>
         </div>
         <div class="stat-item">
@@ -168,7 +181,7 @@
             <p>Years in Business</p>
         </div>
         <div class="stat-item">
-            <h1 data-target="10">0</h1>
+            <h1 data-target="<?= $userCount ?>">0</h1>
             <p>Satisfied Customers</p>
         </div>
     </div>
