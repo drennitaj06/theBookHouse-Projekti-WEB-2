@@ -161,7 +161,7 @@ foreach ($users as $u) {
             <?php foreach ($latestBooks as $index => $book): ?>
 
                 <div class="book <?= $index == 0 ? 'rotated-book-left' : ($index == 2 ? 'rotated-book-right' : 'main-book') ?>">
-                    <img src="<?= BASE_URL . $book['cover_image_url'] ?>" alt="<?= htmlspecialchars($book['title']) ?>">
+                    <img src="<?= BASE_URL . 'assets/images/coverimages/' . $book['cover_image_url'] ?>" alt="<?= htmlspecialchars($book['title']) ?>">
                 </div>
 
             <?php endforeach; ?>
